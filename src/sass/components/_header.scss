@@ -1,0 +1,213 @@
+@import "../variable";
+@import "../base";
+.header {
+  background-color: $main-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  height: $header-height;
+  transition: 0.4s ease-in-out;
+  .container {
+    @include flex(none, none);
+    height: 100%;
+  }
+  .cover-bg.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100vh;
+    transition: 0.4s ease-in-out;
+  }
+  &.shrink {
+    transform: translateY(-100px);
+  }
+
+  &__logo {
+    @include flex(center, center);
+    pointer-events: none;
+    inset: 0;
+    flex: 2;
+    img {
+      height: 50px;
+    }
+  }
+
+  &__menu {
+    @include flex(center, space-between);
+
+    &__item ~ &__item {
+      //   margin-left: 39px;
+    }
+
+    &__item.active {
+      font-weight: bold;
+    }
+
+    &__item:hover {
+      color: $main-color;
+    }
+
+    &__left {
+      @include flex(center, left);
+      flex: 1;
+      font-size: 1.2rem;
+      position: relative;
+      &__item {
+        font-weight: bold;
+        margin-left: 39px;
+      }
+      &__item::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: #000;
+        margin-top: 3px;
+        // position: absolute;
+        right: 0;
+        bottom: -3px;
+        transition: all 0.5s;
+        width: 0px;
+      }
+      &__item:hover:after {
+        width: 100%;
+      }
+      &__item.active::after {
+        width: 100%;
+      }
+      &__mobile,
+      &__search {
+        display: none;
+      }
+
+      @include tablet {
+        @include flex(flex-start, center);
+        // display: none !important;
+        display: block;
+        transform: translateX(-1000%);
+        font-size: 1.5rem;
+        flex-direction: column;
+        background-color: $main-bg;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 100vh;
+        justify-content: flex-start;
+        transition: transform 0.4s ease-in-out;
+
+        &.active {
+          transform: translateX(0);
+        }
+
+        &__item {
+          @include flex(center, start);
+          font-weight: bold;
+          // margin-left: 20px;
+          // margin-top: 20px;
+          width: calc(100% - 39px);
+          padding: 20px 0;
+          position: relative;
+        }
+
+        &__item::after {
+          display: none;
+        }
+
+        &__item::before {
+          content: "";
+          display: block;
+          // height: 10px;
+          background: #000;
+          // margin-top: 3px;
+          position: relative;
+          right: 40px;
+          bottom: 0;
+          transition: all 0.5s;
+          width: 5px;
+        }
+
+        &__item.active::before {
+          width: 5px;
+          height: 60px;
+        }
+
+        &__mobile {
+          @include flex(center, left);
+          font-size: 1.5rem;
+          flex: 1;
+        }
+
+        &__search {
+          @include flex(center, left);
+          padding: 20px;
+          width: 100%;
+          flex: 1;
+          font-size: 1.5rem;
+          input {
+            width: 80%;
+            padding-bottom: 10px;
+            background-color: $main-bg;
+            border-bottom: 1px solid #333;
+          }
+        }
+
+        &__close {
+          @include flex(center, right);
+          margin: 5px 5px 0 0;
+        }
+      }
+      @include mobile {
+        width: 60%;
+      }
+      &__mobile-toggle {
+        flex: 1;
+
+        display: none;
+        @include flex(center, left);
+
+        @include tablet {
+          display: flex;
+          font-size: 1.5rem;
+        }
+      }
+
+      .line {
+        // position: fixed;
+        // width: 50px;
+        // height: 3px;
+        // background-color: white;
+        // top: 20px;
+        // left: 10px;
+      }
+    }
+
+    &__right {
+      @include flex(center, right);
+      flex: 1;
+      font-size: 1.5rem;
+
+      &__item {
+        @include flex(center, center);
+
+        margin-left: 20px;
+      }
+
+      @include tablet {
+        margin-left: auto;
+      }
+
+      @include mobile {
+        font-size: 1.5rem;
+        flex-direction: row-reverse;
+        position: relative;
+        width: 30%;
+        left: 80px;
+      }
+    }
+  }
+}

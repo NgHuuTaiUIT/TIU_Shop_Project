@@ -1,0 +1,73 @@
+@import "../variable";
+@import "../base";
+
+.footer {
+  background-color: $main-bg;
+  position: absolute;
+  left: 0;
+  padding: 50px 0;
+  box-shadow: $box-shadow;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 400;
+  &__logo {
+    p {
+      width: 60%;
+      padding: 20px 0;
+    }
+    img {
+      height: 50px;
+    }
+
+    &__email {
+      @include flex(center, left);
+
+      input {
+        background-color: $main-bg;
+        // border-bottom: 1px solid #333;
+        font-size: 1rem;
+        padding: 20px;
+      }
+      i {
+        font-size: 1.3rem;
+        color: white;
+        background-color: #333;
+        padding: 12px;
+      }
+    }
+
+    &__brand {
+      font-size: 1.2rem;
+      i {
+        padding: 5px;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    &::after {
+      display: block;
+      content: "";
+      position: relative;
+      top: 20px;
+      left: 0;
+      background-color: #333;
+      width: 40px;
+      height: 2px;
+    }
+  }
+
+  &__content {
+    line-height: 32px;
+    li:hover {
+      color: $main-color;
+    }
+  }
+  @include mobile {
+    overflow: scroll;
+  }
+}
