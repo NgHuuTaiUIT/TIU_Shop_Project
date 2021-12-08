@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Burberry Suit",
+    "percentDiscount": 20,
+    "path": "https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-1.jpg?v=1633424501",
+    "link": ""
+  },
+  {
+    "title": "Men Suit Coat",
+    "percentDiscount": 20,
+    "path": "https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-2.jpg?v=1633424048",
+    "link": ""
+  },
+  {
+    "title": "Ladies Skirt",
+    "percentDiscount": 20,
+    "path": "https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-3.jpg?v=1633424991",
+    "link": ""
+  }
+]

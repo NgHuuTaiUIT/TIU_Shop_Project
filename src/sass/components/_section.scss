@@ -1,0 +1,26 @@
+.section {
+  margin: 80px 0;
+
+  &__title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+
+    &:after {
+      content: "";
+      display: block;
+      position: relative;
+      inset: 0;
+      // padding: ;
+      background: #333;
+      width: 100px;
+      height: 2px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  & > * ~ * {
+    margin-top: 70px;
+  }
+}

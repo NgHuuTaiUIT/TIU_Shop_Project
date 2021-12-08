@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Grid from "./Grid";
+import Button from "./Button";
 
 const Slider = props => {
-  const { data, timeOut = 3000, auto = true, control = true } = props;
+  const { data, timeOut = 5000, auto = true, control = true } = props;
   const [activeSlider, setActiveSlider] = useState(0);
   console.log(control);
   const nextSlider = () => {
@@ -20,7 +21,7 @@ const Slider = props => {
   useEffect(() => {
     if (auto) {
       const slideAuto = setInterval(() => {
-        // nextSlider();
+        nextSlider();
       }, timeOut);
 
       return () => {
@@ -58,7 +59,9 @@ const SliderItem = props => (
       </div>
       <div className="slider__item__info__btn">
         <Link to="/">
-          <button>Shop Now</button>
+          <Button backgroundColor={"#fff"} icon="bx bx-cart" animate={true}>
+            Shop Now
+          </Button>
         </Link>
       </div>
     </div>

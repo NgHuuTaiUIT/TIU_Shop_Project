@@ -3,16 +3,41 @@ $main-color: #4267b2;
 
 $text-main-color: #000;
 $txt-second-color: #8d8d8d;
+$txt-main-color: #fff;
 $txt-white: #fff;
 $btn-main-bg: $main-color;
 $btn-main-color: #fff;
 
 $header-height: 80px;
 $header-tablet-height: 70px;
-$header-mobile-height: 40px;
+$header-mobile-height: 50px;
 $header-shrink-height: 40px;
 
 $box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+//Colors
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+$red93: #931739;
 
 $colors: (
   "blue": #4267b2,

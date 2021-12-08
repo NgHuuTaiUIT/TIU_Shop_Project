@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Casino Uniform Tie",
+    "price": "14.98",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/3-1.jpg?v=1633313957",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/3-3_grande.jpg?v=1633313958",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/3-2_grande.jpg?v=1633313958"
+    ],
+    "size": ["s", "m", "l", "xl"],
+    "categorySlug": "tie"
+  },
+  {
+    "title": "Cheap Waistcoat Men",
+    "price": "87.00",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/pro4.jpg?v=1633148540",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/pro3_grande.jpg?v=1633148540",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/pro1_grande.jpg?v=1633148540"
+    ],
+    "size": ["s", "m", "l", "xl"],
+    "categorySlug": "vest"
+  },
+  {
+    "title": "Intaglio Women's Suit Coat",
+    "price": "150.00",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/p…c3c0-c91e-4d91-83ef-689c12ec2a88.jpg?v=1633315956",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/6-3_grande.jpg?v=1633315510"
+    ],
+    "size": ["s", "m", "l", "xl"],
+    "categorySlug": "vest"
+  },
+  {
+    "title": "Linen Vest",
+    "price": "82.00",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/5-3.jpg?v=1633315082",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/5-4_grande.jpg?v=1633315081",
+      "https://cdn.shopify.com/s/files/1/0550/6665/6987/products/5-2_grande.jpg?v=1633315082"
+    ],
+    "size": ["s", "m", "l", "xl"],
+    "categorySlug": "vest"
+  }
+]
