@@ -9,7 +9,7 @@ const Banner = props => {
       {data.map((item, index) => (
         <div className="banner__item" key={index}>
           <div className="banner__item__image">
-            <img src={item.path} alt="" srcset="" />
+            <img src={item.path} alt="" />
           </div>
           <div className="banner__item__info">
             <div className="banner__item__info__discount">

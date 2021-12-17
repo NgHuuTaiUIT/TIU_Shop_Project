@@ -10,14 +10,14 @@ function App(props) {
   return (
     <BrowserRouter>
       <div>
-        <div className="container">
-          <Header {...props} />
-          <div className="main">
-            <Routers />
-          </div>
-          <Footer />
+        {/* <div className="container"> */}
+        <Header {...props} />
+        <div className="main">
+          <Routers />
         </div>
+        <Footer />
       </div>
+      {/* </div> */}
     </BrowserRouter>
   );
 }

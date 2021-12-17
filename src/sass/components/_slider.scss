@@ -1,10 +1,13 @@
 .slider {
   height: auto;
-  min-height: 760px;
+  // min-height: 760px;
+  padding-top: 55%;
+
   overflow: hidden;
   // position: relative;
   //   top: calc(#{$header-height});
   //   left: 0;
+  // transform: scale(1.1);
   width: 100%;
   margin-bottom: 50px;
   margin-top: calc(#{$header-height} * -1);
@@ -33,6 +36,8 @@
       @include flex(center, center);
       flex-direction: column;
       position: absolute;
+      // top: 50%;
+      // transform: translateY(-50%);
       width: 100%;
       height: 680px;
       // top: 50px;
@@ -51,7 +56,7 @@
       &__title,
       &__description,
       &__btn {
-        width: 40%;
+        width: 50%;
       }
 
       &__title {
@@ -143,21 +148,22 @@
   }
 
   @include tablet {
-    margin-top: calc(#{$header-tablet-height});
-    min-height: 320px;
+    margin-top: calc(#{$header-tablet-height} * -1);
+    // min-height: 320px;
     font-size: 0.8rem;
     &__item {
-      height: 60%;
+      // height: 60%;
 
       &__info {
         height: 60%;
         font-size: 0.8rem;
         width: 100%;
         inset: 0;
-        // top: 5%;
+        top: -10%;
+        // transform: translateY(-50%);
         &__description {
           line-height: 20px;
-          width: 30%;
+          // width: 30%;
         }
 
         &__btn {
@@ -175,14 +181,14 @@
   }
 
   @include mobile {
-    margin-top: calc(#{$header-mobile-height});
+    margin-top: calc(#{$header-mobile-height} * -1);
     // height: 60%;
-    min-height: 320px;
+    // min-height: 320px;
     &__item {
       margin-top: calc(#{$header-mobile-height});
-      .grid {
-        display: flex;
-      }
+      // .grid {
+      //   display: flex;
+      // }
 
       &__info {
         top: 15%;

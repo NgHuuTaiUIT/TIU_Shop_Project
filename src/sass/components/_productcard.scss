@@ -2,20 +2,50 @@
   text-align: center;
   margin-bottom: 30px;
   position: relative;
-  &__status {
+  overflow: hidden;
+
+  &__action {
     position: absolute;
     inset: 0;
-    background: #333;
+    // background: #333;
     // padding: 20px;
-    padding: 7px 0 5px 0;
-    margin: 10px;
+
     text-align: center;
+    top: 60%;
     width: 50px;
-    height: 30px;
+    // height: 20%;
+    height: fit-content;
+    left: calc(100% - 10px);
+    transform: translate(20%, -100%);
     z-index: 2;
     color: $txt-white;
     font-size: 0.8rem;
+    // visibility: hidden;
+    opacity: 0;
+    transition: transform 0.4s linear, opacity 0.3s linear;
+    &__item {
+      @include flex(center, center);
+      cursor: pointer;
+      font-size: 1.5rem;
+      margin: 15px 0;
+      box-shadow: $box-shadow;
+      border-radius: 100%;
+      color: black;
+      height: 46px;
+      width: 46px;
+      &:hover {
+        color: $txt-white;
+        background-color: $main-color;
+      }
+    }
+
+    &.show {
+      transform: translate(-100%, -100%);
+      opacity: 1;
+      // visibility: visible;
+    }
   }
+
   &__images {
     padding-top: 100%;
     position: relative;
@@ -27,15 +57,36 @@
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-200%);
+      // transform: translateX(-200%);
+      transform: translate(-50%, -100%);
       height: 100%;
       z-index: 0;
-
-      transition: z-index 3s ease;
+      opacity: 0;
+      transition: all 1s ease;
       &.show {
         z-index: 1;
-        transform: translateX(-50%);
+        // transform: translateY(-100%);
+        transform: translate(-50%, 0%);
+        opacity: 1;
       }
+    }
+
+    &__figure {
+      position: absolute;
+      top: 10px;
+      right: -30px;
+      font-size: 0.8rem;
+
+      letter-spacing: 1px;
+      padding: 5px 12px;
+      transform: rotate(45deg);
+      width: 110px;
+      background: #e12c43;
+      color: $txt-white;
+      z-index: 2;
+      text-transform: uppercase;
+      font-family: "Urbanist", sans-serif;
+      font-weight: 700;
     }
   }
 
@@ -46,6 +97,14 @@
     .item {
       margin-bottom: 10px;
       margin-left: 10px;
+    }
+
+    &__rating {
+      color: $yellow;
+    }
+    &__title {
+      // padding-bottom: 20px;
+      height: 30px;
     }
 
     &__price {
@@ -61,20 +120,34 @@
     &__select {
       ul {
         @include flex(center, center);
+        li {
+          cursor: pointer;
+        }
       }
       &__color {
         //   display: none;
-        border: 2px solid #333;
+        // border: 2px solid #333;
         border-radius: 100%;
         padding: 5px;
         width: 30px;
         height: 30px;
-        margin-left: 5px;
         img {
           height: 20px;
           width: auto;
         }
+        &.selected {
+          border: 2px solid $main-color;
+        }
+      }
+      &__color ~ &__color {
+        margin-left: 5px;
       }
     }
+  }
+
+  &:hover &__action {
+    transform: translate(-100%, -100%);
+    opacity: 1;
+    visibility: visible;
   }
 }

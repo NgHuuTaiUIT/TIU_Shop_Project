@@ -46,6 +46,7 @@ const Header = () => {
     let preScrollTop = 0;
 
     window.addEventListener("scroll", () => {
+      if (!headerRef) return;
       if (document.documentElement.scrollTop >= preScrollTop) {
         headerRef.current.classList.add("shrink");
       } else {
@@ -65,12 +66,12 @@ const Header = () => {
 
       <div className="container">
         <div className="header__menu__left__mobile" onClick={menuToggle}>
-          <i class="bx bx-menu"></i>
+          <i className="bx bx-menu"></i>
         </div>
         <div className="header__menu__left" ref={menuLeftRef}>
           <div className="header__menu__left__search">
             <input type="text" placeholder="Search" />
-            <i class="bx bx-search"></i>
+            <i className="bx bx-search"></i>
           </div>
           {mainNav.map((item, index) => (
             <div
@@ -94,16 +95,16 @@ const Header = () => {
 
         <div className="header__menu__right" ref={menuRightRef}>
           <div className="header__menu__item header__menu__right__item">
-            <i class="bx bx-search"></i>
+            <i className="bx bx-search"></i>
           </div>
           <div className="header__menu__item header__menu__right__item">
-            <i class="bx bx-user"></i>
+            <i className="bx bx-user"></i>
           </div>
           <div className="header__menu__item header__menu__right__item">
-            <i class="bx bx-heart"></i>
+            <i className="bx bx-heart"></i>
           </div>
           <div className="header__menu__item header__menu__right__item">
-            <i class="bx bx-shopping-bag"></i>
+            <i className="bx bx-shopping-bag"></i>
           </div>
         </div>
       </div>

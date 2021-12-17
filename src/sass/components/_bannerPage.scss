@@ -1,0 +1,17 @@
+.banner-page {
+  //   width: 100%;
+  color: #fff;
+  font-size: 1.5rem;
+  position: relative;
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__background {
+    padding-top: 25%;
+  }
+}

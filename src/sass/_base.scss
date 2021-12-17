@@ -4,7 +4,7 @@
 // @import "./components/footer";
 
 html {
-  font-style: 13px;
+  font-size: 16px;
 }
 
 body {
@@ -32,24 +32,38 @@ input {
   }
 
   .bg-#{$color} {
-    background-color: $val;
+    background-color: $val !important;
   }
 }
 
 @each $val in $numbers {
-  .grid-col-#{$val} {
-    grid-template-columns: repeat($val, 1fr);
-
-    @include tablet {
-      grid-template-columns: repeat($val, 1fr);
+  @each $size in $sizes {
+    .grid-col-#{$val}-size-#{$size} {
+      // grid-template-columns: repeat($val, 1fr);
+      grid-template-columns: repeat($val, $size);
     }
   }
 }
 
 @each $val in $numbers {
   .grid-col-#{$val} {
+    grid-template-columns: repeat($val, 1fr);
+    // grid-template-columns: repeat($val, $size);
+  }
+}
+
+@each $val in $numbers {
+  .grid-col-md-#{$val} {
+    @include tablet {
+      grid-template-columns: repeat($val, 1fr) !important;
+    }
+  }
+}
+
+@each $val in $numbers {
+  .grid-col-sm-#{$val} {
     @include mobile {
-      grid-template-columns: repeat($val, 1fr);
+      grid-template-columns: repeat($val, 1fr) !important;
     }
   }
 }

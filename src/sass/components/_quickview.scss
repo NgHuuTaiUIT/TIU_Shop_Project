@@ -1,0 +1,102 @@
+.quickview {
+  @include flex(start, center);
+  position: absolute;
+  width: 50%;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+
+  margin-top: 80px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  //   font-size: 1.5rem;
+  &__main {
+    @include flex(start, center);
+    &__info {
+      width: 50%;
+      font-size: 1.2rem;
+      margin-left: 20px;
+
+      .info__item {
+        padding: 10px;
+      }
+
+      &__title {
+        // text-align: center;
+      }
+
+      &__price {
+        border-bottom: 1px solid black;
+      }
+
+      &__description {
+        font-size: 1rem;
+      }
+
+      &__size {
+        @include flex(center, start);
+        .label__size {
+          font-size: 0.8rem;
+          position: relative;
+          top: -10px;
+          padding: 10px 30px 10px 0;
+          border-bottom: 2px solid black;
+          font-weight: 900;
+          margin-right: 20px;
+        }
+        .size__item {
+          @include flex(center, center);
+          border: 1px solid black;
+          text-transform: uppercase;
+          width: 40px;
+          height: 40px;
+          margin-left: 10px;
+          text-align: center;
+        }
+      }
+
+      &__action {
+        @include flex(center, space-between);
+        .quantily {
+          border: 1px solid black;
+          font-size: 1.5rem;
+          @include flex(center, start);
+          span {
+            padding: 10px 20px;
+            border-right: 1px solid black;
+          }
+          .chevron {
+            @include flex(center, space-between);
+            flex-direction: column;
+            i {
+              padding: 0 5px;
+            }
+            i ~ i {
+              border-top: 1px solid black;
+            }
+          }
+        }
+        button {
+          width: 70%;
+        }
+      }
+    }
+
+    &__images {
+      width: 50%;
+
+      .main-image {
+        img {
+          //   height: 365px;
+          width: 100%;
+        }
+      }
+      .mini-image {
+        img {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
