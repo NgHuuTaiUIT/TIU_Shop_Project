@@ -9,24 +9,56 @@ import { useDispatch } from "react-redux";
 import { set } from "../redux/product-modal/productModalSlice";
 
 import RatingStart from "./RatingStart";
+import { addItem } from "../redux/shopping-cart/cartItemsSlice";
+import { addWishListItem } from "../redux/wish-list/wishlistItemsSlice";
 
 const ProductCard = props => {
   const dispatch = useDispatch();
 
-  const { title, images, price, slug, link } = props;
+  const { link, product } = props;
+  const { title, images, price, slug } = product;
+
   const productSelected = useRef(null);
+
   const [color, setColor] = useState(0);
+
   const handleSelectColor = index => {
     setColor(index);
+  };
+
+  const addToCard = () => {
+    dispatch(
+      addItem({
+        price: product.price,
+        color: product.color[0],
+        size: product.size[0],
+        slug: slug,
+        quantity: 1
+      })
+    );
+    // alert("Đã thêm");
+  };
+
+  const addToWishList = () => {
+    dispatch(
+      addWishListItem({
+        slug: slug
+      })
+    );
+    // alert("Đã thêm");
   };
 
   return (
     <div className="product-card">
       <div className="product-card__action">
-        <div className="product-card__action__item add-wishlist">
+        <div
+          className="product-card__action__item add-wishlist"
+          onClick={() => addToWishList()}>
           <i className="bx bx-heart"></i>
         </div>
-        <div className="product-card__action__item add-to-card">
+        <div
+          className="product-card__action__item add-to-card"
+          onClick={() => addToCard()}>
           <i className="bx bx-cart"></i>
         </div>
         <div

@@ -63,10 +63,7 @@ const InfinityList = props => {
         {products.map((item, index) => (
           <ProductCard
             key={index}
-            title={item.title}
-            images={item.images}
-            slug={item.slug}
-            size={item.size}
+            product={item}
             link={"/"}
             price={Number.parseFloat(item.price)}
           />
