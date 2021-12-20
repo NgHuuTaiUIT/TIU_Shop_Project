@@ -1,10 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+
 import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
-import { useState } from "react";
+
+import { useDispatch } from "react-redux";
+
+import { set } from "../redux/product-modal/productModalSlice";
+
 import RatingStart from "./RatingStart";
 
 const ProductCard = props => {
+  const dispatch = useDispatch();
+
   const { title, images, price, slug, link } = props;
   const productSelected = useRef(null);
   const [color, setColor] = useState(0);
@@ -21,7 +29,9 @@ const ProductCard = props => {
         <div className="product-card__action__item add-to-card">
           <i className="bx bx-cart"></i>
         </div>
-        <div className="product-card__action__item quick-view">
+        <div
+          className="product-card__action__item quick-view"
+          onClick={() => dispatch(set(slug))}>
           <i className="bx bx-search"></i>
         </div>
       </div>

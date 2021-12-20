@@ -7,7 +7,7 @@ import Button from "./Button";
 import randomNumber from "../assets/utils/randomNumber";
 
 const ProductView = props => {
-  const { product } = props;
+  const { product, isFullSize = true } = props;
 
   const [previewImg, setPreviewImg] = useState(0);
 
@@ -51,8 +51,12 @@ const ProductView = props => {
   const decreaseQuantity = () =>
     setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
 
+  if (product === undefined) {
+    return null;
+  }
+
   return (
-    <div className="product">
+    <div className={`product ${!isFullSize ? "sm" : ""}`}>
       <div className="product__images">
         <div className="product__images__list">
           {product.images.map((item, index) => (
@@ -82,6 +86,9 @@ const ProductView = props => {
         </div>
       </div>
       <div className="product__content">
+        <div className="product__content__item product__content__item__add-wishlist">
+          <i className="bx bx-heart"></i>
+        </div>
         <div className="product__content__item product__content__item__title">
           {product.title}
         </div>

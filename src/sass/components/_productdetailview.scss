@@ -1,0 +1,317 @@
+.product-detail {
+  //   position: relative;
+  color: $txt-second-color;
+
+  @include mobile {
+    &__body {
+      &__additional {
+        .flex {
+          flex-direction: column;
+        }
+
+        &__item {
+          width: 100% !important;
+        }
+
+        &__more-infomation,
+        &__image {
+        }
+      }
+    }
+  }
+
+  &__header {
+    font-size: 1.3rem;
+    font-weight: 500;
+    @include flex(center, center);
+    padding: 25px 0;
+    border-top: $border;
+    border-bottom: $border;
+
+    span {
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        color: $text-main-color;
+        border-bottom: 2px solid $main-color;
+      }
+
+      &.active {
+        color: $text-main-color;
+
+        border-bottom: 2px solid $main-color;
+      }
+    }
+
+    span ~ span {
+      margin-left: 35px;
+    }
+  }
+
+  &__body {
+    padding: 50px 0;
+    width: 80%;
+    margin: auto;
+    line-height: 1.5rem;
+
+    &__item {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+
+    .content {
+      position: relative;
+      margin: auto;
+    }
+
+    &__description {
+      color: $text-main-color;
+      font-weight: 500;
+    }
+
+    &__additional {
+      .flex {
+        @include flex(flex-start, flex-start);
+      }
+
+      &__more-infomation {
+        width: 70%;
+        &__title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          padding: 20px 0;
+          position: relative;
+          color: $text-main-color;
+
+          &:before {
+            font-size: 0.7rem;
+            content: "More infomation to you";
+            text-transform: uppercase;
+            color: $gray;
+            position: absolute;
+            inset: 0;
+            letter-spacing: 3px;
+          }
+
+          &:after {
+            content: "";
+            text-transform: uppercase;
+            position: absolute;
+            background: $main-color;
+            padding-bottom: 2px;
+            padding-right: 10%;
+            top: 80%;
+            left: 0;
+          }
+        }
+
+        &__body {
+          // line-height: 1.5rem;
+
+          .body__item {
+            ul ~ ul {
+              padding-top: 20px;
+
+              li {
+                cursor: pointer;
+
+                &:hover {
+                  color: $main-color;
+                }
+              }
+            }
+
+            ul {
+              font-size: 1.3rem;
+              color: $black;
+              font-weight: 600;
+              li {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $txt-second-color;
+
+                padding-top: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      &__image {
+        width: 30%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    &__review {
+      &__title {
+        // font-size: 1.5rem;
+
+        font-weight: 500;
+        padding: 20px 0;
+        margin-top: -30px;
+        position: relative;
+        color: $text-main-color;
+        &:after {
+          content: "";
+          text-transform: uppercase;
+          position: absolute;
+          background: $main-color;
+          padding-bottom: 2px;
+          padding-right: 10%;
+          top: 80%;
+          left: 0;
+        }
+      }
+
+      &__content {
+        &__post {
+          box-shadow: $box-shadow;
+          border: $border;
+          padding: 20px;
+
+          // padding: 0 20px;
+
+          &__item {
+            height: fit-content;
+            margin: 10px 0;
+
+            img {
+              height: 50px;
+              width: 50px;
+              border-radius: 100%;
+              box-shadow: $box-shadow;
+            }
+
+            textarea {
+              width: 100%;
+              padding: 20px;
+              border: $border;
+            }
+
+            .item__button {
+              @include flex(center, flex-end);
+
+              button ~ button {
+                margin-left: 20px;
+                background-color: $main-color;
+                span {
+                  color: $txt-main-color;
+                  &:hover {
+                    background-color: darken(
+                      $color: $main-color,
+                      $amount: 20
+                    ) !important;
+                  }
+                }
+              }
+
+              button {
+                font-size: 0.7rem;
+                background-color: $white;
+                span {
+                  &:hover {
+                    background-color: $black;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &__comment {
+          box-shadow: $box-shadow;
+          border: $border;
+          padding: 20px;
+          margin-top: 20px;
+          // padding: 0 20px;
+
+          &__item {
+            height: fit-content;
+            margin: 10px 0;
+
+            .header-comment__item {
+              @include flex(center, flex-start);
+
+              .name-and-time {
+                margin-left: 10px;
+                .name {
+                  color: $text-main-color;
+                }
+                .time {
+                  font-size: 0.7rem;
+                  @include flex(center, flex-start);
+                  padding: 5px 0;
+                }
+              }
+            }
+
+            img {
+              height: 50px;
+              width: 50px;
+              border-radius: 100%;
+              box-shadow: $box-shadow;
+              border: $border;
+            }
+
+            textarea {
+              width: 100%;
+              padding: 20px;
+              border: $border;
+            }
+
+            .item__button {
+              @include flex(center, flex-end);
+
+              button ~ button {
+                margin-left: 20px;
+                background-color: $main-color;
+                span {
+                  color: $txt-main-color;
+                  &:hover {
+                    background-color: darken(
+                      $color: $main-color,
+                      $amount: 20
+                    ) !important;
+                  }
+                }
+              }
+
+              button {
+                font-size: 0.7rem;
+                background-color: $white;
+                span {
+                  &:hover {
+                    background-color: $black;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    @include flex(center, center);
+    padding: 10px 0;
+    border-top: $border;
+    border-bottom: $border;
+    margin-top: 50px;
+    color: $text-main-color;
+    &__item ~ &__item {
+      margin-left: 10px;
+    }
+
+    &__item {
+      @include icon();
+    }
+  }
+}

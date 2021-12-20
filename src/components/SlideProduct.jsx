@@ -32,12 +32,14 @@ const SlideProduct = props => {
   const nextSlider = () => {
     const index = dotSelected + 1 === dots ? 0 : dotSelected + 1;
 
-    selectDot(index);
+    // selectDot(index);
+    setDotSelected(index);
   };
 
   const preSlider = () => {
     const index = dotSelected - 1 === -1 ? dots - 1 : dotSelected - 1;
-    selectDot(index);
+    // selectDot(index);
+    setDotSelected(index);
   };
 
   useEffect(() => {
@@ -57,17 +59,16 @@ const SlideProduct = props => {
       <div ref={slideRef}>
         <Grid col={data.length} gap={20} size={size}>
           {/* {data.map((item, index) => (
-          <ProductCard
-            key={index}
-            title={item.title}
-            images={item.images}
-            slug={item.categorySlug}
-            size={item.size}
-            link={"/"}
-            price={Number.parseFloat(item.price)}
-          />
-        ))} */}
-
+            <ProductCard
+              key={index}
+              title={item.title}
+              images={item.images}
+              slug={item.categorySlug}
+              size={item.size}
+              link={"/"}
+              price={Number.parseFloat(item.price)}
+            />
+          ))} */}
           {props.children}
         </Grid>
       </div>
@@ -78,9 +79,15 @@ const SlideProduct = props => {
               <span
                 key={index}
                 className="active"
-                onClick={e => selectDot(index, e)}></span>
+                onClick={e => selectDot(index, e)}
+                // onClick={e => setLoad(true)}
+              ></span>
             ) : (
-              <span key={index} onClick={e => selectDot(index, e)}></span>
+              <span
+                key={index}
+                onClick={e => selectDot(index, e)}
+                // onClick={e => setLoad(true)}
+              ></span>
             )
           )}
         </div>

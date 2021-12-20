@@ -11,6 +11,7 @@ import ProductCard from "../components/ProductCard";
 import ProductView from "../components/ProductView";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 import SlideProduct from "../components/SlideProduct";
+import ProductDetailView from "../components/ProductDetailView";
 
 const Product = props => {
   const { slug } = useParams();
@@ -30,6 +31,7 @@ const Product = props => {
             <ProductView product={product} />
           </SectionBody>
         </Section>
+
         <Section>
           <SectionBody>
             <Grid col={4} mdCol={2} smCol={1} gap={20}>
@@ -44,6 +46,13 @@ const Product = props => {
             </Grid>
           </SectionBody>
         </Section>
+
+        <Section>
+          <SectionBody>
+            <ProductDetailView product={product} />
+          </SectionBody>
+        </Section>
+
         <Section>
           <SectionTitle>RELATED PRODUCTS</SectionTitle>
           <SectionBody>

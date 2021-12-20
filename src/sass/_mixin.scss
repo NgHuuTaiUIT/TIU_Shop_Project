@@ -23,7 +23,22 @@
     transform: translateY(-50%);
   }
 }
-
+@mixin icon {
+  border-radius: 50%;
+  border: $border;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  &:hover {
+    background-color: $main-color;
+    color: $txt-main-color;
+  }
+  @include flex(center, center);
+  i {
+    // @include center(both, relative);
+  }
+}
 @mixin mobile {
   @media only screen and (max-width: $mobile-width) {
     @content;

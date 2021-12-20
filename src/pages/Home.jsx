@@ -30,7 +30,7 @@ const Home = () => {
       {/* Slider*/}
       <Slider data={sliderData} />
       <div className="container">
-        <Banner data={bannerData} link={"/category"} />
+        <Banner data={bannerData} />
         <Section>
           <SectionBody>
             <Grid col={4} mdCol={2} smCol={1} gap={20}>
@@ -173,8 +173,8 @@ const Home = () => {
           <SectionBody>
             <SlideProduct
               data={productData.getAllProducts()}
-              size={"24%"}
-              _left={51}
+              size={"calc(24% - 5px)"}
+              _left={50}
               timeOut={5000}>
               {productData.getAllProducts().map((item, index) => (
                 <ProductCard
