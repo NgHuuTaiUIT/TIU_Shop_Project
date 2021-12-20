@@ -4,6 +4,41 @@
   justify-content: $justify-content;
 }
 
+@mixin center($opt, $ref: absolute) {
+  // display: flex;
+  @if $opt == both {
+    position: $ref;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $opt == hor {
+    position: $ref;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $opt == ver {
+    position: $ref;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@mixin icon {
+  border-radius: 50%;
+  border: $border;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  &:hover {
+    background-color: $main-color;
+    color: $txt-main-color;
+  }
+  @include flex(center, center);
+  i {
+    // @include center(both, relative);
+  }
+}
 @mixin mobile {
   @media only screen and (max-width: $mobile-width) {
     @content;

@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import Product from "../pages/Product";
 import Catalog from "../pages/Catalog";
+import News from "../components/News";
 
 const Routers = () => {
   return (
@@ -14,6 +15,7 @@ const Routers = () => {
       <Route path="/catalog/:slug" element={<Product />} />
       <Route path="/catalog" element={<Catalog />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/news" element={<News />} />
     </Routes>
   );
 };

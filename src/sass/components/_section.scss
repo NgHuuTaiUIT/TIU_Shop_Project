@@ -1,0 +1,27 @@
+.section {
+  // margin: 80px 0;
+  padding: 50px 0;
+  &__title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      position: relative;
+      inset: 0;
+      // padding: ;
+      background: $main-color;
+      width: 10%;
+      height: 2px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  & > * ~ * {
+    margin-top: 50px;
+  }
+}

@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Grid from "./Grid";
+import Button from "./Button";
 
 const Slider = props => {
-  const { data, timeOut = 3000, auto = true, control = true } = props;
+  const { data, timeOut = 5000, auto = true, control = true } = props;
+
   const [activeSlider, setActiveSlider] = useState(0);
-  console.log(control);
+
   const nextSlider = () => {
     const index = activeSlider + 1 === data.length ? 0 : activeSlider + 1;
+
     setActiveSlider(index);
   };
 
@@ -20,7 +23,7 @@ const Slider = props => {
   useEffect(() => {
     if (auto) {
       const slideAuto = setInterval(() => {
-        // nextSlider();
+        nextSlider();
       }, timeOut);
 
       return () => {
@@ -58,16 +61,29 @@ const SliderItem = props => (
       </div>
       <div className="slider__item__info__btn">
         <Link to="/">
-          <button>Shop Now</button>
+          <Button backgroundColor={"#fff"} icon="bx bx-cart" animate={true}>
+            Shop Now
+          </Button>
         </Link>
       </div>
     </div>
     <Grid col={2}>
-      <div className={`slider__item__image ${props.active ? "active" : ""}`}>
-        <img src={props.item.path[0]} alt="" />
+      <div
+        className={`slider__item__image ${props.active ? "active" : ""}`}
+        style={{
+          background: `url(${props.item.path[0]}) no-repeat`,
+          backgroundSize: "cover"
+        }}>
+        {/* <img src={props.item.path[0]} alt="" /> */}
       </div>
-      <div className={`slider__item__image ${props.active ? "active" : ""}`}>
-        <img src={props.item.path[1]} alt="" />
+      <div
+        className={`slider__item__image ${props.active ? "active" : ""}`}
+        style={{
+          background: `url(${props.item.path[0]}) no-repeat`,
+          backgroundSize: "cover",
+          paddingTop: "100%"
+        }}>
+        {/* <img src={props.item.path[1]} alt="" /> */}
       </div>
     </Grid>
   </div>

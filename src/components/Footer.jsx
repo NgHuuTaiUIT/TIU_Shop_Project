@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-        <Grid col={4} mdCol={2} smCol={1} gap={10}>
+        <Grid col={4} mdCol={3} smCol={1} gap={10}>
           <div>
             <div className="footer__logo">
               <Link to="/">
@@ -50,13 +50,33 @@ const Footer = () => {
               <p>Subscribe our newsletter and get discount 30% off</p>
               <div className="footer__logo__email">
                 <input type="email" placeholder="Your email address..." />
-                <i class="bx bxs-paper-plane"></i>
+                <i className="bx bxs-paper-plane"></i>
               </div>
               <div className="footer__logo__brand">
-                <i class="bx bxl-facebook-circle"></i>
-                <i class="bx bxl-twitter"></i>
-                <i class="bx bxl-youtube"></i>
-                <i class="bx bxl-instagram"></i>
+                <a
+                  href="https://www.facebook.com/tai.nguyenhuu.37201/"
+                  target="_blank"
+                  rel="noreferrer">
+                  <i className="bx bxl-facebook-circle"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/tai.nguyenhuu.37201/"
+                  target="_blank"
+                  rel="noreferrer">
+                  <i className="bx bxl-twitter"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/tai.nguyenhuu.37201/"
+                  target="_blank"
+                  rel="noreferrer">
+                  <i className="bx bxl-youtube"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/tai.nguyenhuu.37201/"
+                  target="_blank"
+                  rel="noreferrer">
+                  <i className="bx bxl-instagram"></i>
+                </a>
               </div>
             </div>
           </div>

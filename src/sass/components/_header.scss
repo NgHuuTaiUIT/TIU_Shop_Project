@@ -1,7 +1,9 @@
 @import "../variable";
 @import "../base";
 .header {
-  background-color: $main-bg;
+  background-color: rgba($color: $main-bg, $alpha: 0.5);
+  // background-color: transparent;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +11,10 @@
   z-index: 99;
   height: $header-height;
   transition: 0.4s ease-in-out;
+
+  &:hover {
+    background-color: $main-bg;
+  }
   .container {
     @include flex(none, none);
     height: 100%;
@@ -195,6 +201,7 @@
         @include flex(center, center);
 
         margin-left: 20px;
+        cursor: pointer;
       }
 
       @include tablet {
@@ -207,6 +214,19 @@
         position: relative;
         width: 30%;
         left: 80px;
+        // height: $header-mobile-height;
+      }
+    }
+  }
+  @include mobile {
+    height: $header-mobile-height;
+
+    &__item {
+    }
+
+    &__logo {
+      img {
+        height: calc(#{$header-mobile-height} - 15px);
       }
     }
   }

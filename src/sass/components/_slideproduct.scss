@@ -1,0 +1,21 @@
+.slide-product {
+  overflow: hidden;
+  div {
+    transition: transform 0.9s ease;
+  }
+  &__control {
+    @include flex(center, center);
+    span {
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 100%;
+      border: 2px solid $gray;
+      &.active {
+        background-color: $main-color;
+      }
+    }
+    span ~ span {
+      margin-left: 10px;
+    }
+  }
+}

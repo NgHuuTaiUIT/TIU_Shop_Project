@@ -1,21 +1,16 @@
 .slider {
-  height: 100vh;
-  min-height: 1080px;
+  height: auto;
+  // min-height: 760px;
+  padding-top: 55%;
+
   overflow: hidden;
-  //   position: absolute;
+  // position: relative;
   //   top: calc(#{$header-height});
   //   left: 0;
+  // transform: scale(1.1);
   width: 100%;
   margin-bottom: 50px;
-  margin-top: calc(#{$header-height} - 1);
-
-  @include tablet {
-    margin-top: calc(#{$header-tablet-height} * -1);
-  }
-
-  @include mobile {
-    margin-top: calc(#{$header-mobile-height} * -1);
-  }
+  margin-top: calc(#{$header-height} * -1);
 
   &__item {
     opacity: 0;
@@ -26,24 +21,31 @@
     height: 100%;
     margin-top: calc(#{$header-height});
     transition: 0.3s ease;
+
     &.active {
       opacity: 1;
       visibility: visible;
       pointer-events: visible;
     }
 
+    .grid {
+      overflow: hidden;
+    }
+
     &__info {
       @include flex(center, center);
       flex-direction: column;
       position: absolute;
+      // top: 50%;
+      // transform: translateY(-50%);
       width: 100%;
-      height: 100%;
-      //   top: 15%;
+      height: 680px;
+      // top: 50px;
       //   left: 40%;
       text-align: center;
       color: white;
       font-size: 1.3rem;
-      z-index: 2;
+      z-index: 1;
       transform: scale(0);
       //   transition-delay: transform 5s;
       transition: transform 0.5s ease-out 0.8s;
@@ -54,7 +56,7 @@
       &__title,
       &__description,
       &__btn {
-        width: 40%;
+        width: 50%;
       }
 
       &__title {
@@ -69,24 +71,25 @@
       &__btn {
         margin: 20px;
         z-index: 3;
-        button {
-          cursor: pointer;
-          padding: 10px 0;
-          width: 150px;
-          font-size: 1.2rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          transition: 0.3s ease-in;
-          &:hover {
-            background: #{$main-color};
-            color: white;
-          }
-        }
+        // button {
+        //   cursor: pointer;
+        //   padding: 10px 0;
+        //   width: 150px;
+        //   font-size: 1.2rem;
+        //   font-weight: 600;
+        //   text-transform: uppercase;
+        //   transition: 0.3s ease-in;
+        //   &:hover {
+        //     background: #{$main-color};
+        //     color: white;
+        //   }
+        // }
       }
     }
 
     &__image {
       @include flex(start, space-between);
+
       transition: transform 0.8s ease;
       img {
         width: 100%;
@@ -121,9 +124,12 @@
     opacity: 0;
     transition: 0.4s ease-in;
     cursor: pointer;
+    z-index: 2;
     &__item {
+      box-shadow: 1px 2px 6px 4px rgba(53, 57, 68, 20%);
+
       padding: 10px;
-      background: white;
+      background: $txt-main-color;
       margin: 0 20px;
       transition: 0.3s ease;
       i {
@@ -139,5 +145,65 @@
 
   &:hover &__control {
     opacity: 1;
+  }
+
+  @include tablet {
+    margin-top: calc(#{$header-tablet-height} * -1);
+    // min-height: 320px;
+    font-size: 0.8rem;
+    &__item {
+      // height: 60%;
+
+      &__info {
+        height: 60%;
+        font-size: 0.8rem;
+        width: 100%;
+        inset: 0;
+        top: -10%;
+        // transform: translateY(-50%);
+        &__description {
+          line-height: 20px;
+          // width: 30%;
+        }
+
+        &__btn {
+          button {
+            font-size: 0.8rem;
+            width: 60%;
+          }
+        }
+      }
+    }
+
+    &__control {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    margin-top: calc(#{$header-mobile-height} * -1);
+    // height: 60%;
+    // min-height: 320px;
+    &__item {
+      margin-top: calc(#{$header-mobile-height});
+      // .grid {
+      //   display: flex;
+      // }
+
+      &__info {
+        top: 15%;
+
+        &__description {
+          line-height: 20px;
+          width: 70%;
+        }
+      }
+
+      &__image {
+        &:last-child {
+          display: none;
+        }
+      }
+    }
   }
 }

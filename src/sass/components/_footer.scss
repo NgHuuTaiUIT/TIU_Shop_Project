@@ -67,7 +67,36 @@
       color: $main-color;
     }
   }
+
+  @include tablet {
+    &__logo {
+      width: fit-content;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 50px;
+      p {
+        margin: auto;
+      }
+    }
+    .grid-col-4 {
+      grid-template-columns: repeat(3, 1fr);
+      div:first-child {
+        grid-column: 1/5;
+      }
+    }
+  }
   @include mobile {
     overflow: scroll;
+    .grid {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    &__title {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
 }
