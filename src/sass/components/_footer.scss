@@ -78,12 +78,12 @@
         margin: auto;
       }
     }
-    // .grid-col-4 {
-    //   grid-template-columns: repeat(3, 1fr);
-    //   div:first-child {
-    //     grid-column: 1/5;
-    //   }
-    // }
+    .grid-col-4 {
+      // grid-template-columns: repeat(3, 1fr);
+      div:first-child {
+        grid-column: 1/5;
+      }
+    }
   }
   @include mobile {
     overflow: scroll;

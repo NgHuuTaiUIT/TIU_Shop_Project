@@ -19,7 +19,8 @@
     position: absolute;
     inset: 0;
     height: 0;
-    // margin-top: calc(#{$header-height});
+    margin-top: calc(#{$header-height});
+
     transition: 0.3s ease;
 
     &.active {

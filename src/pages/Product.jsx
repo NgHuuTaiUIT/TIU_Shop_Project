@@ -58,7 +58,9 @@ const Product = props => {
           <SectionBody>
             <SlideProduct
               data={relatedProducts}
-              size={"24%"}
+              size={4}
+              mdsize={2}
+              smsize={2}
               _left={51}
               timeOut={5000}>
               {relatedProducts.map((item, index) => (

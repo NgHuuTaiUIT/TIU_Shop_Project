@@ -24,13 +24,15 @@ function App(props) {
     <BrowserRouter>
       {/* <div style={{ width: `${size}px`, margin: "auto" }}> */}
       <div
-        style={{
-          width: "100%",
-          minWidth: "600px",
-          margin: "auto",
-          position: "relative",
-          padding: "0 20px"
-        }}>
+        style={
+          {
+            // width: "100%",
+            // minWidth: "600px",
+            // margin: "auto",
+            // position: "relative",
+            // padding: "0 20px"
+          }
+        }>
         {/* <div className="container"> */}
         <Header {...props} />
         <div className="main">

@@ -1,4 +1,5 @@
 .banner {
+  padding: 20px;
   @include flex(center, center);
   width: 100%;
   max-width: 1440px;
@@ -88,6 +89,8 @@
   }
 
   @include tablet {
+    padding: 0;
+
     display: flex;
     &__item {
       &__info {
