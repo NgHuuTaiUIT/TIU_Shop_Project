@@ -31,7 +31,7 @@ const Wishlist = props => {
         ))}
         {wishListProduct.length <= 0 ? (
           <div className="wishlist__null">
-            <i class="bx bxs-ghost"></i>
+            <i className="bx bxs-ghost"></i>
             Bạn chưa có sản phẩm yêu thích nào
           </div>
         ) : (

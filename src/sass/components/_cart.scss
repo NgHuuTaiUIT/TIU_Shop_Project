@@ -1,13 +1,9 @@
 .cart {
   @include flex(flex-start, flex-start);
 
-  @include mobile {
-    flex-wrap: wrap;
-  }
-
   &__info {
     // width: 40%;
-    margin-right: 30px;
+    margin: 0 30px;
     margin-top: 30px;
     padding: 20px;
     box-shadow: $box-shadow;
@@ -39,14 +35,24 @@
       & > * {
         margin-bottom: 20px;
       }
-      button {
+      & > button {
         width: 100%;
+        background-color: $text-main-color;
+        > span {
+          color: $txt-main-color;
+        }
+      }
+
+      & > a > button {
+        width: 100%;
+        background-color: $btn-main-color;
       }
     }
   }
 
   &__list {
     flex-grow: 1;
+    margin-left: 20px;
   }
 
   &__item {
@@ -80,6 +86,14 @@
           }
         }
       }
+    }
+  }
+
+  @include tablet {
+    flex-wrap: wrap;
+
+    &__info {
+      flex-grow: 1;
     }
   }
 }

@@ -39,13 +39,18 @@ const Cart = () => {
   return (
     <Helmet title="Cart">
       <div className="cart">
+        <div className="cart__list">
+          {cartProduct.map((item, index) => (
+            <CartItem key={index} item={item} />
+          ))}
+        </div>
         {cartProduct.length > 0 ? (
           <div className="cart__info">
             <div className="cart__info__txt">
               <p>You have {totalProduct} products in your cart</p>
               <div className="cart__info__txt__price">
                 <span>Total</span>
-                <span>${totalPrice} USD</span>
+                <span>${totalPrice.toFixed(2)} USD</span>
               </div>
               <div className="cart__info__actions">
                 <Button size={100}>Proceed to checkout</Button>
@@ -58,11 +63,6 @@ const Cart = () => {
         ) : (
           ""
         )}
-        <div className="cart__list">
-          {cartProduct.map((item, index) => (
-            <CartItem key={index} item={item} />
-          ))}
-        </div>
       </div>
       {cartProduct.length <= 0 ? (
         <div className="wishlist__null">

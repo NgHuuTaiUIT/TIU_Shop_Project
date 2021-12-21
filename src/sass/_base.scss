@@ -5,10 +5,6 @@
 
 html {
   font-size: 16px;
-
-  @include mobile {
-    font-size: 14px;
-  }
 }
 
 body {

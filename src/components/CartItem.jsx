@@ -15,12 +15,13 @@ const CartItem = props => {
   const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
-    dispatch(updateItem({ ...item, quantity: quantity + 1 }));
-    // setQuantity(quantity + 1 === 100 ? quantity : quantity + 1);
+    if (quantity + 1 < 100)
+      dispatch(updateItem({ ...item, quantity: quantity + 1 }));
   };
 
   const decreaseQuantity = () => {
-    dispatch(updateItem({ ...item, quantity: quantity - 1 }));
+    if (quantity - 1 > 0)
+      dispatch(updateItem({ ...item, quantity: quantity - 1 }));
     // setQuantity(quantity + 1 === 100 ? quantity : quantity - 1);
   };
 
@@ -70,15 +71,47 @@ const CartItem = props => {
         <span> </span>
       </div>
       <div className="cart__item__body">
-        <div className="cart__item__body__item">
+        <div className="cart__item__body__item cart__item__body__item__image">
           <img src={item.product.images[0]} alt="" />
-          <span>{item.product.title}</span>
+          <Link
+            to={`/catalog/${item.slug}`}
+            style={{
+              display: "flex",
+              flexDirection: "column"
+            }}>
+            {`${item.product.title}`}
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center",
+                marginTop: "10px"
+              }}>
+              <div
+                className={`bg-${item.color}`}
+                style={{
+                  display: "inline-block",
+                  borderRadius: "50%",
+                  height: "20px",
+                  width: "20px"
+                }}></div>
+
+              <div
+                className={`product__content__item__body size__item`}
+                style={{
+                  color: "black"
+                }}>
+                {item.size}
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div className="cart__item__body__item cart__item__body__item__price">
+          <span>${price.toFixed(2)} USD</span>
         </div>
         <div className="cart__item__body__item">
-          <span>${item.product.price} USD</span>
-        </div>
-        <div className="cart__item__body__item">
-          <div className="cart__item__body__item__quantity">
+          <div className=" cart__item__body__item__quantity">
             <span>{quantity}</span>
             <div className="chevron">
               <i
@@ -91,7 +124,7 @@ const CartItem = props => {
           </div>
         </div>
         <div className="cart__item__body__item">
-          <i className="bx bx-x" onClick={() => removeItem()}></i>
+          <i className="bx bx-x" onClick={() => removeCartItem()}></i>
         </div>
       </div>
     </div>

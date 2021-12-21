@@ -38,16 +38,19 @@ export const cartItemsSlice = createSlice({
       const itemUpdate = action.payload;
 
       const item = findItem(state.value, itemUpdate);
+      const index = state.value.findIndex(e => e.id === item[0].id);
       if (item.length > 0) {
         state.value = delItem(state.value, itemUpdate);
 
-        state.value = [
-          ...state.value,
-          {
-            ...itemUpdate,
-            id: item[0].id
-          }
-        ];
+        // state.value = [
+        //   ...state.value,
+        //   {
+        //     ...itemUpdate,
+        //     id: item[0].id
+        //   }
+        // ];
+
+        state.value.splice(index, 0, itemUpdate);
         localStorage.setItem("cardItems", JSON.stringify(state.value));
       }
     },

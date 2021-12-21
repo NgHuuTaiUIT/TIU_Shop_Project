@@ -1,19 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { set } from "../redux/product-modal/productModalSlice";
 
 import RatingStart from "./RatingStart";
 import { addItem } from "../redux/shopping-cart/cartItemsSlice";
-import { addWishListItem } from "../redux/wish-list/wishlistItemsSlice";
+import {
+  addWishListItem,
+  removeWishListItem
+} from "../redux/wish-list/wishlistItemsSlice";
+import { wishListItemsSelector } from "../redux/selector";
 
 const ProductCard = props => {
   const dispatch = useDispatch();
+
+  const wishListItems = useSelector(wishListItemsSelector);
 
   const { link, product } = props;
   const { title, images, price, slug } = product;
@@ -21,6 +27,12 @@ const ProductCard = props => {
   const productSelected = useRef(null);
 
   const [color, setColor] = useState(0);
+
+  const [isWishListItem, setisWishListItem] = useState(false);
+
+  useEffect(() => {
+    setisWishListItem(wishListItems.find(item => item.slug === slug));
+  }, [wishListItems]);
 
   const handleSelectColor = index => {
     setColor(index);
@@ -48,12 +60,21 @@ const ProductCard = props => {
     // alert("Đã thêm");
   };
 
+  const removeWishList = () => {
+    dispatch(removeWishListItem({ slug: slug }));
+    // alert("Đã thêm");
+  };
+
   return (
     <div className="product-card">
       <div className="product-card__action">
         <div
-          className="product-card__action__item add-wishlist"
-          onClick={() => addToWishList()}>
+          className={`product-card__action__item add-wishlist ${
+            isWishListItem ? "active" : ""
+          }`}
+          onClick={() => {
+            !isWishListItem ? addToWishList() : removeWishList();
+          }}>
           <i className="bx bx-heart"></i>
         </div>
         <div
@@ -83,7 +104,9 @@ const ProductCard = props => {
       </Link>
 
       <div className="product-card__info">
-        <RatingStart number={4} />
+        <div style={{ padding: "0 10px" }}>
+          <RatingStart number={4} />
+        </div>
         <Link to={`/catalog/${slug}`}>
           <h3 className="item product-card__info__title">{title}</h3>
         </Link>

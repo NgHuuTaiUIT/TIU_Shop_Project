@@ -33,7 +33,7 @@ const Home = () => {
         <Banner data={bannerData} />
         <Section>
           <SectionBody>
-            <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            <Grid col={4} mdCol={2} smCol={2} gap={20}>
               {policy.map((item, index) => (
                 <PolicyCard
                   key={index}
@@ -51,7 +51,7 @@ const Home = () => {
         <Section>
           <SectionTitle>Our Best Seller</SectionTitle>
           <SectionBody>
-            <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            <Grid col={4} mdCol={2} smCol={2} gap={20}>
               {productData.getAllProducts().map((item, index) => (
                 <ProductCard
                   key={index}
@@ -217,7 +217,7 @@ const Home = () => {
           <SectionTitle>OUR BLOGS</SectionTitle>
 
           <SectionBody>
-            <Grid col={3}>
+            <Grid col={3} smCol={1} mdCol={2}>
               <News
                 image={
                   "https://cdn.shopify.com/s/files/1/0550/6665/6987/articles/blog1_1024x1024.jpg?v=1633138354"

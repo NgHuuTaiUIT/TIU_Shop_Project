@@ -188,7 +188,7 @@ const CollectionList = props => {
           <div className="collection-list__filter__widget__title">Color</div>
           <div
             className="collection-list__filter__widget__content"
-            style={{ display: "flex" }}>
+            style={{ display: "flex", flexWrap: "wrap" }}>
             {color.map((item, index) => (
               <div
                 key={index}

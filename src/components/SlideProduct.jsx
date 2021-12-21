@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Grid from "./Grid";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
+import { useCallback } from "react";
 
 const SlideProduct = props => {
   const {
@@ -29,17 +30,17 @@ const SlideProduct = props => {
     slideRef.current.style.transform = `translateX(-${x})`;
   };
 
-  const nextSlider = () => {
+  const nextSlider = useCallback(() => {
     const index = dotSelected + 1 === dots ? 0 : dotSelected + 1;
 
     // selectDot(index);
-    setDotSelected(index);
-  };
+    selectDot(index);
+  }, [dotSelected, dots]);
 
   const preSlider = () => {
     const index = dotSelected - 1 === -1 ? dots - 1 : dotSelected - 1;
     // selectDot(index);
-    setDotSelected(index);
+    selectDot(index);
   };
 
   useEffect(() => {
