@@ -209,7 +209,7 @@
         margin-left: 20px;
         cursor: pointer;
         &:hover {
-          transform: scale(1.2);
+          // transform: scale(1.2);
         }
       }
 
@@ -267,6 +267,27 @@
 
     &__menu__right {
       transform: translateX(25%);
+      flex: 1;
+      &__item {
+        height: 35px !important;
+        width: 35px !important;
+
+        &.active {
+          color: $main-color;
+          background-color: transparent;
+        }
+        &:hover {
+          color: $main-color;
+          background-color: transparent;
+        }
+
+        &:last-child {
+          span {
+            top: -2px;
+            transform: translate(-50%, -30%);
+          }
+        }
+      }
     }
   }
 

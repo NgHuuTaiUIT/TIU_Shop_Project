@@ -1,0 +1,230 @@
+.login {
+  position: fixed;
+  z-index: 99;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rbg(0, 0, 0);
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__popup,
+  .register__popup {
+    background: rgba($color: #333, $alpha: 0.1)
+      url("https://lh3.googleusercontent.com/proxy/iVddVGNePxSPKQSsSmw07wARjcDvrdarzVx-t_ubA2WND1lK19mtUYuTTCxi1k-is9yYh0X_MGA-cl8ztrAiy4ll7F9fFfZGgJeywQiPZE5x2MKe0QKRaM2T");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    margin: auto;
+    padding: 2rem;
+    // background-color: $white;
+    width: 30%;
+    position: relative;
+    transform: translateY(0);
+    opacity: 1;
+    & > * {
+      margin-top: 40px;
+    }
+  }
+
+  &__logo,
+  .register__logo {
+    margin: auto;
+    // text-align: center;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding-bottom: 40px;
+    img {
+      width: 40%;
+    }
+  }
+
+  &__close,
+  .register__close {
+    margin: auto;
+    // text-align: center;
+    position: fixed;
+    top: 10px;
+    left: calc(100% - 2rem);
+    padding-bottom: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $black;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__section,
+  .register__section {
+    @include flex(center, center);
+
+    margin-top: 50px;
+
+    button ~ button {
+      margin-left: 20px;
+    }
+
+    > button {
+      // box-shadow: rgba($color: $white, $alpha: 0.3) 8px 8px 24px;
+      > span {
+        color: $black;
+        padding: 10px 20px;
+      }
+
+      &:first-child {
+        background-color: $black;
+        border: 1px solid $txt-white;
+        span {
+          color: $white;
+        }
+      }
+      &:nth-child(2) {
+        background-color: $white;
+        span {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  &__form,
+  .register__form {
+    color: $txt-second-color;
+
+    > * {
+      margin-bottom: 10px;
+    }
+
+    &__username,
+    &__password {
+      // border-radius: 3px;
+      display: flex;
+      justify-content: flex-start;
+      text-align: flex-start;
+      padding: 10px;
+      background-color: #e7e7e9;
+      border-radius: 3px;
+
+      & ~ & {
+        margin-top: 30px;
+      }
+
+      & ~ * {
+        margin-top: 30px;
+      }
+
+      input {
+        font-size: 0.8rem;
+        flex: 1;
+        // padding: 10px;
+        // width: 100%;
+        background-color: transparent;
+      }
+      &:before {
+        content: "Email";
+        top: -25px;
+        left: -10px;
+        height: 10px;
+        width: 0px;
+        position: relative;
+        color: $txt-main-color;
+
+        // color:$white
+      }
+    }
+
+    &__username {
+    }
+
+    &__password {
+      &:before {
+        content: "Password";
+      }
+    }
+
+    &__remember {
+      @include flex(center, space-between);
+      color: lighten($color: $txt-second-color, $amount: 30);
+      > a {
+        border-bottom: 1px solid $txt-second-color;
+      }
+
+      > * {
+        &:hover {
+          color: $txt-main-color;
+        }
+        > a:hover {
+          border-bottom: 1px solid $text-main-color;
+        }
+      }
+    }
+
+    > button {
+      width: 100%;
+      margin: 20px 0;
+      background-color: $black;
+      > span {
+        color: $txt-main-color;
+      }
+    }
+    margin-bottom: 20px;
+  }
+
+  &__social__list,
+  .register__social__list {
+    position: relative;
+    text-align: center;
+    > span {
+      position: relative;
+      color: $txt-main-color;
+
+      &:before,
+      &:after {
+        content: "";
+        inset: 0;
+        width: 100%;
+        transform: translate(110%, 50%);
+        // padding: 0 20px;
+        border-top: $border;
+        position: absolute;
+      }
+      &:after {
+        transform: translate(-110%, 50%);
+      }
+    }
+
+    > ul {
+      @include flex(center, space-between);
+      margin-top: 10px;
+      color: $txt-main-color;
+      li ~ li {
+        margin-left: 10px;
+      }
+
+      > li {
+        border-radius: 5px;
+        font-size: 1.5rem;
+        padding: 10px 0;
+        background-color: $dark;
+        flex: 1;
+        cursor: pointer;
+        &:hover {
+          background-color: $main-color;
+        }
+      }
+    }
+  }
+}

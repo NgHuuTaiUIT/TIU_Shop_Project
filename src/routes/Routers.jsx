@@ -8,6 +8,7 @@ import Product from "../pages/Product";
 import Catalog from "../pages/Catalog";
 import News from "../components/News";
 import Wishlist from "../pages/Wishlist";
+import Login from "../pages/Login";
 
 const Routers = () => {
   return (
@@ -18,6 +19,7 @@ const Routers = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/news" element={<News />} />
       <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

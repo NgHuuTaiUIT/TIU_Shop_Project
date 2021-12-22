@@ -107,4 +107,26 @@
     }
     // flex-direction: column;
   }
+
+  @include mobile {
+    padding: 0;
+
+    display: flex;
+    &__item {
+      margin-bottom: 10px;
+
+      &__info {
+        font-size: 1.2rem;
+
+        &__title {
+          margin-bottom: 20px;
+        }
+
+        &__link {
+          font-size: 1rem;
+        }
+      }
+    }
+    flex-direction: column;
+  }
 }

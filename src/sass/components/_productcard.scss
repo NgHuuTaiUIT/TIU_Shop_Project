@@ -1,5 +1,6 @@
 .product-card {
   text-align: center;
+  // padding: 0 0px;
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
@@ -185,7 +186,20 @@
     margin: -20px;
     margin-bottom: 0;
     box-shadow: $box-shadow;
-    z-index: 99;
+    z-index: 98;
+
+    @include mobile {
+      margin: -10px;
+    }
     // border: $border;
+  }
+
+  @include mobile {
+    .product-card__info {
+      line-height: 20px;
+      > a > h3 {
+        font-size: 1rem;
+      }
+    }
   }
 }

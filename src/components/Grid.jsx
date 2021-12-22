@@ -7,6 +7,7 @@ const Grid = props => {
     ...style,
     gap: props.gap ? `${props.gap}px` : "0",
     gridTemplateColumns: `repeat(${props.col},${props.size})`
+    // padding: "0 20px"
   };
   // if (props.size) {
   //   style["grid-template-columns"] = `repeat(${props.col},${props.size})`;

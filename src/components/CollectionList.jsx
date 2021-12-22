@@ -20,6 +20,8 @@ const CollectionList = props => {
 
   const [filter, setFilter] = useState(initFilter);
 
+  const [sort, setSort] = useState("");
+
   // const cloneProductData = productData.slice(0, perLoad);
 
   const [products, setProducts] = useState(productData);
@@ -93,6 +95,27 @@ const CollectionList = props => {
     }
   };
 
+  const sortSelection = (type, temp) => {
+    let tempData = temp;
+    switch (type) {
+      case "GIATANG":
+        tempData = temp.sort((a, b) => {
+          return a.price - b.price;
+        });
+
+        break;
+      case "GIAGIAM":
+        tempData = temp.sort((a, b) => {
+          return b.price - a.price;
+        });
+        break;
+      default:
+        break;
+    }
+
+    return tempData;
+  };
+
   const clearFilter = () => setFilter(initFilter);
 
   const updateProducts = useCallback(() => {
@@ -114,15 +137,15 @@ const CollectionList = props => {
         return check !== undefined;
       });
     }
+    console.log(temp);
+
+    if (sort) {
+      temp = [...sortSelection(sort, temp)];
+    }
+    console.log(temp);
 
     setProducts(temp);
-    // if (filter.price.length > 0) {
-    //   temp = temp.filter(e => {
-    //     const check = e.price.filter(price => filter.size.includes(color))
-    //     return check !== undefined
-    //   });
-    // }
-  }, [filter, productData]);
+  }, [filter, productData, sort]);
 
   useEffect(() => {
     updateProducts();
@@ -246,11 +269,15 @@ const CollectionList = props => {
                   <i className="bx bx-sort-down"></i>
                 </li>
 
-                <li className="dropdown__item">
+                <li
+                  className="dropdown__item"
+                  onClick={() => setSort("GIAGIAM")}>
                   <span className="dropdown__text">Price</span>
                   <i className="bx bx-sort-down"></i>
                 </li>
-                <li className="dropdown__item">
+                <li
+                  className="dropdown__item"
+                  onClick={() => setSort("GIATANG")}>
                   <span className="dropdown__text">Price</span>
                   <i className="bx bx-sort-up"></i>
                 </li>
