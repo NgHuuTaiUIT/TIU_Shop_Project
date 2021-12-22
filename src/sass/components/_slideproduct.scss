@@ -1,8 +1,16 @@
 .slide-product {
+  padding: 20px 0;
   overflow: hidden;
   div {
-    transition: transform 0.9s ease;
+    transition: all 0.9s ease;
   }
+
+  .wrap {
+    // .grid ~ .grid {
+    //   margin-left: 70px;
+    // }
+  }
+
   &__control {
     @include flex(center, center);
     span {

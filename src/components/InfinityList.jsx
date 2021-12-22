@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 import Grid from "./Grid";
 
 const InfinityList = props => {
-  const perLoad = 6; // items each load
+  const perLoad = 8; // items each load
 
   const listRef = useRef(null);
 
@@ -39,6 +39,8 @@ const InfinityList = props => {
   }, [listRef]);
 
   useEffect(() => {
+    console.log("Vao");
+
     const getItems = () => {
       const pages = Math.floor(data.length / perLoad);
       const maxIndex =
@@ -56,17 +58,16 @@ const InfinityList = props => {
     getItems();
     setLoad(false);
   }, [load, index, data, products]);
+  console.log(data);
 
+  console.log(products);
   return (
     <div ref={listRef}>
-      <Grid col={col} mdCol={2} smCol={1} gap={20}>
+      <Grid col={col} mdCol={2} smCol={2} gap={20}>
         {products.map((item, index) => (
           <ProductCard
             key={index}
-            title={item.title}
-            images={item.images}
-            slug={item.slug}
-            size={item.size}
+            product={item}
             link={"/"}
             price={Number.parseFloat(item.price)}
           />

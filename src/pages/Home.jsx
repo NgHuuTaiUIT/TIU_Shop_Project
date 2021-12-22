@@ -51,14 +51,11 @@ const Home = () => {
         <Section>
           <SectionTitle>Our Best Seller</SectionTitle>
           <SectionBody>
-            <Grid col={4} mdCol={2} smCol={1} gap={20}>
+            <Grid col={4} mdCol={2} smCol={2} gap={20}>
               {productData.getAllProducts().map((item, index) => (
                 <ProductCard
                   key={index}
-                  title={item.title}
-                  images={item.images}
-                  slug={item.slug}
-                  size={item.size}
+                  product={item}
                   link={"/"}
                   price={Number.parseFloat(item.price)}
                 />
@@ -111,7 +108,9 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card style={{ gridColumn: "3 / 5" }}>
+            <Card
+            // style={{ gridColumn: "3 / 5" }}
+            >
               <CardBody>
                 <img
                   src="	https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_5.jpg?v=1634010518"
@@ -124,7 +123,9 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card style={{ gridColumn: "1 / 3" }}>
+            <Card
+            // style={{ gridColumn: "1 / 3" }}
+            >
               <CardBody>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_6.jpg?v=1634011276"
@@ -173,16 +174,14 @@ const Home = () => {
           <SectionBody>
             <SlideProduct
               data={productData.getAllProducts()}
-              size={"calc(24% - 5px)"}
-              _left={50}
+              size={4}
+              mdsize={2}
+              smsize={2}
               timeOut={5000}>
               {productData.getAllProducts().map((item, index) => (
                 <ProductCard
                   key={index}
-                  title={item.title}
-                  images={item.images}
-                  slug={item.slug}
-                  size={item.size}
+                  product={item}
                   link={"/"}
                   price={Number.parseFloat(item.price)}
                 />
@@ -197,14 +196,16 @@ const Home = () => {
       <Section
         style={{
           background: `url("https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-under.jpg?v=1633421819") no-repeat `,
-          backgroundSize: "cover"
+          backgroundSize: "cover",
+          backgroundPosition: "center"
         }}>
         <SectionTitle style={{ color: "#fff" }}>TESTIMONIALS</SectionTitle>
         <SectionBody>
           <SlideProduct
             data={productData.getAllProducts()}
-            size={"100%"}
-            _left={101.5}
+            size={1}
+            // _left={101.5}
+            mdsize={1}
             auto={false}>
             {employeeData.map((item, index) => (
               <TestimonialsCard item={item} key={index} />
@@ -223,7 +224,7 @@ const Home = () => {
           <SectionTitle>OUR BLOGS</SectionTitle>
 
           <SectionBody>
-            <Grid col={3}>
+            <Grid col={3} smCol={1} mdCol={2}>
               <News
                 image={
                   "https://cdn.shopify.com/s/files/1/0550/6665/6987/articles/blog1_1024x1024.jpg?v=1633138354"

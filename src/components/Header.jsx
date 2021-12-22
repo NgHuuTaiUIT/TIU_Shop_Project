@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { cartItemsSelector } from "../redux/selector";
 import "../sass/components/_header.scss";
 const mainNav = [
   {
@@ -33,6 +35,8 @@ const Header = () => {
   const menuRightRef = useRef(null);
 
   const coverBgRef = useRef(null);
+
+  const cartItems = useSelector(cartItemsSelector);
 
   const menuToggle = () => {
     console.log(document.body.offsetWidth);
@@ -100,12 +104,17 @@ const Header = () => {
           <div className="header__menu__item header__menu__right__item">
             <i className="bx bx-user"></i>
           </div>
-          <div className="header__menu__item header__menu__right__item">
+          <Link
+            to="/wishlist"
+            className="header__menu__item header__menu__right__item">
             <i className="bx bx-heart"></i>
-          </div>
-          <div className="header__menu__item header__menu__right__item">
+          </Link>
+          <Link
+            to="/cart"
+            className="header__menu__item header__menu__right__item">
             <i className="bx bx-shopping-bag"></i>
-          </div>
+            {cartItems.length > 0 ? <span>{cartItems.length}</span> : ""}
+          </Link>
         </div>
       </div>
     </div>

@@ -79,7 +79,7 @@
       }
     }
     .grid-col-4 {
-      grid-template-columns: repeat(3, 1fr);
+      // grid-template-columns: repeat(3, 1fr);
       div:first-child {
         grid-column: 1/5;
       }
@@ -87,10 +87,11 @@
   }
   @include mobile {
     overflow: scroll;
+    text-align: center;
     .grid {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+      // display: flex;
+      // flex-direction: column;
+      // text-align: center;
     }
     &__title {
       &::after {

@@ -1,9 +1,10 @@
 .product-card {
   text-align: center;
+  // padding: 0 0px;
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
-
+  transition: all 0.3s ease;
   &__action {
     position: absolute;
     inset: 0;
@@ -16,7 +17,9 @@
     // height: 20%;
     height: fit-content;
     left: calc(100% - 10px);
-    transform: translate(20%, -100%);
+    // transform: translate(20%, -100%);
+    transform: translate(-100%, -100%);
+
     z-index: 2;
     color: $txt-white;
     font-size: 0.8rem;
@@ -33,9 +36,30 @@
       color: black;
       height: 46px;
       width: 46px;
+      // opacity: 0;
+      // visibility: hidden;
+      transform: translateX(150%);
+
       &:hover {
         color: $txt-white;
         background-color: $main-color;
+      }
+
+      &:first-child {
+        transition: all 0.3s linear;
+
+        &.active {
+          color: $txt-white;
+          background-color: $main-color;
+        }
+      }
+
+      &:nth-child(2) {
+        transition: all 0.3s linear 0.1s;
+      }
+
+      &:nth-child(3) {
+        transition: all 0.3s linear 0.2s;
       }
     }
 
@@ -105,6 +129,7 @@
     &__title {
       // padding-bottom: 20px;
       height: 30px;
+      text-align: left;
     }
 
     &__price {
@@ -146,8 +171,35 @@
   }
 
   &:hover &__action {
-    transform: translate(-100%, -100%);
+    // transform: translate(-100%, -100%);
     opacity: 1;
     visibility: visible;
+
+    &__item {
+      transform: translateX(0%);
+    }
+  }
+
+  &:hover {
+    // transform: scaleX(1.1);
+    border-radius: 10px;
+    margin: -20px;
+    margin-bottom: 0;
+    box-shadow: $box-shadow;
+    z-index: 98;
+
+    @include mobile {
+      margin: -10px;
+    }
+    // border: $border;
+  }
+
+  @include mobile {
+    .product-card__info {
+      line-height: 20px;
+      > a > h3 {
+        font-size: 1rem;
+      }
+    }
   }
 }

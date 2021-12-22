@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 import PropTypes from "prop-types";
-import { useState } from "react";
 import RatingStart from "./RatingStart";
 import CheckBox from "./CheckBox";
 import Button from "./Button";
 import randomNumber from "../assets/utils/randomNumber";
+import { addItem } from "../redux/shopping-cart/cartItemsSlice";
+import { addWishListItem } from "../redux/wish-list/wishlistItemsSlice";
+// import { addItems } from "../redux/shopping-cart/cartItemsSlice";
 
 const ProductView = props => {
+  const dispatch = useDispatch();
+
   const { product, isFullSize = true } = props;
 
   const [previewImg, setPreviewImg] = useState(0);
@@ -51,6 +57,26 @@ const ProductView = props => {
   const decreaseQuantity = () =>
     setQuantity(quantity - 1 === 0 ? quantity : quantity - 1);
 
+  const addToCard = () => {
+    dispatch(
+      addItem({
+        price: product.price,
+        color: product.color[color],
+        size: product.size[size],
+        slug: product.slug,
+        quantity: quantity
+      })
+    );
+  };
+
+  const addToWishList = () => {
+    dispatch(
+      addWishListItem({
+        slug: product.slug
+      })
+    );
+  };
+
   if (product === undefined) {
     return null;
   }
@@ -86,7 +112,9 @@ const ProductView = props => {
         </div>
       </div>
       <div className="product__content">
-        <div className="product__content__item product__content__item__add-wishlist">
+        <div
+          className="product__content__item product__content__item__add-wishlist"
+          onClick={() => addToWishList()}>
           <i className="bx bx-heart"></i>
         </div>
         <div className="product__content__item product__content__item__title">
@@ -173,7 +201,8 @@ const ProductView = props => {
             backgroundColor={"black"}
             color={"white"}
             icon="bx bx-cart"
-            animate={false}>
+            animate={false}
+            onClick={() => addToCard()}>
             Add to Cart
           </Button>
         </div>
