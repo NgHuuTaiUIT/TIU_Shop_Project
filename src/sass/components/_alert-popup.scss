@@ -1,0 +1,36 @@
+.alert-popup {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  transition: height 0.5s linear;
+
+  &__item {
+    width: 300px;
+    height: 80px;
+    background-color: $main-color;
+    color: white;
+    font-size: 0.8rem;
+    transform: translateX(-0%);
+    transition: transform 0.5s ease;
+    @include flex(center, flex-start);
+    &.active {
+      transform: translateX(0%);
+    }
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+}

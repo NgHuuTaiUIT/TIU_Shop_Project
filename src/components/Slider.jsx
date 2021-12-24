@@ -60,7 +60,7 @@ const SliderItem = props => (
         <span>{props.item.description}</span>
       </div>
       <div className="slider__item__info__btn">
-        <Link to="/">
+        <Link to="/catalog">
           <Button backgroundColor={"#fff"} icon="bx bx-cart" animate={true}>
             Shop Now
           </Button>

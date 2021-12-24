@@ -13,8 +13,6 @@ import policy from "../assets/fake-data/policy";
 
 import employeeData from "../assets/Json/employeeData.json";
 
-import CEO from "../assets/images/CEO.jpg";
-
 import ProductCard from "../components/ProductCard";
 import SlideProduct from "../components/SlideProduct";
 import QuickView from "../components/QuickView";
@@ -193,6 +191,8 @@ const Home = () => {
 
       {/*End Best Seller Section*/}
 
+      {/* Member */}
+
       <Section
         style={{
           background: `url("https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-under.jpg?v=1633421819") no-repeat `,
@@ -213,8 +213,6 @@ const Home = () => {
           </SlideProduct>
         </SectionBody>
       </Section>
-
-      {/* Member */}
 
       {/* End Member Slider */}
 

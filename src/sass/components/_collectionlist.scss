@@ -134,13 +134,12 @@
 
         padding: 5px 20px;
         font-size: 1.2rem;
-        // display: none;
-        opacity: 0;
-        visibility: hidden;
+        display: none;
+        // opacity: 0;
+        // visibility: hidden;
 
         @include tablet {
-          opacity: 1;
-          visibility: visible;
+          display: flex;
         }
 
         @include tablet {
@@ -194,8 +193,10 @@
             transform: translate(-50%, -50%);
           }
 
-          &:first-child {
-            display: none;
+          @include mobile {
+            &:first-child {
+              display: none;
+            }
           }
         }
       }

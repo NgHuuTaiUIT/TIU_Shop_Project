@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
+import AlertPopUp from "./components/AlertPopUp";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import QuickView from "./components/QuickView";
@@ -39,6 +40,7 @@ function App(props) {
           <Routers />
         </div>
         <Footer />
+        <AlertPopUp />
         <QuickView />
       </div>
 
