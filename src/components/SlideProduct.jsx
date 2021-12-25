@@ -23,22 +23,20 @@ const SlideProduct = props => {
     tempData.push(props.children.slice(i, i + size));
   }
 
-  // const dots = Math.floor((data.length - 4) / 2) + 1;
-
   const dots = tempData.length;
 
   const range = [...Array(dots).keys()];
 
   let slideRef = useRef(null);
+  const productSlide = useRef(null);
 
   const [dotSelected, setDotSelected] = useState(0);
-  // let style = {};
 
-  console.log(tempData);
+  //Even Lướt
 
   const selectDot = dot => {
+    if (dot < 0 || dot >= range.length) return;
     setDotSelected(dot);
-    // const x = `calc(-${dot * _left}% + ${dot * 70}px)`;
     const x = `-${dot * (100 / tempData.length)}%`;
 
     slideRef.current.style.transform = `translateX(${x})`;
@@ -47,13 +45,11 @@ const SlideProduct = props => {
   const nextSlider = useCallback(() => {
     const index = dotSelected + 1 === dots ? 0 : dotSelected + 1;
 
-    // selectDot(index);
     selectDot(index);
   }, [dotSelected, dots]);
 
   const preSlider = () => {
     const index = dotSelected - 1 === -1 ? dots - 1 : dotSelected - 1;
-    // selectDot(index);
     selectDot(index);
   };
 
@@ -69,30 +65,59 @@ const SlideProduct = props => {
     }
   }, [nextSlider, timeOut, auto]);
 
+  useEffect(() => {
+    let startX;
+
+    const handleMouseDown = e => {
+      startX = e.pageX;
+      console.log("mousedown");
+    };
+
+    const handleMouseUp = e => {
+      if (e.pageX < startX) {
+        selectDot(dotSelected + 1);
+      } else if (e.pageX > startX) {
+        selectDot(dotSelected - 1);
+      }
+      console.log("mouseup");
+    };
+
+    if (productSlide && productSlide.current) {
+      // productSlide.addEventListener("mousedown", handleMouseDown);
+
+      productSlide.current.onmousedown = handleMouseDown;
+      productSlide.current.onmouseup = handleMouseUp;
+      // productSlide.addEventListener("mouseup", handleMouseUp);
+    }
+  }, [dotSelected]);
+
   return (
-    <div className="slide-product">
-      <div
-        ref={slideRef}
-        className="wrap"
-        style={{
-          width: `${tempData.length * 100}%`,
-          display: "flex",
-          position: "relative"
-        }}>
-        {tempData.map((item, index) => (
-          <Grid
-            col={size}
-            mdCol={mdsize}
-            smCol={smsize}
-            gap={20}
-            style={{
-              width: `${100 / tempData.length}%`,
-              padding: "20px",
-              flex: "1"
-            }}>
-            {item}
-          </Grid>
-        ))}
+    <>
+      <div className="slide-product" ref={productSlide}>
+        <div
+          ref={slideRef}
+          className="wrap"
+          style={{
+            width: `${tempData.length * 100}%`,
+            display: "flex",
+            position: "relative",
+            cursor: "move"
+          }}>
+          {tempData.map((item, index) => (
+            <Grid
+              col={size}
+              mdCol={mdsize}
+              smCol={smsize}
+              gap={20}
+              style={{
+                width: `${100 / tempData.length}%`,
+                padding: "20px",
+                flex: "1"
+              }}>
+              {item}
+            </Grid>
+          ))}
+        </div>
       </div>
       {control ? (
         <div className="slide-product__control">
@@ -114,7 +139,7 @@ const SlideProduct = props => {
           )}
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

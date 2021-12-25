@@ -15,6 +15,7 @@ import {
   removeWishListItem
 } from "../redux/wish-list/wishlistItemsSlice";
 import { wishListItemsSelector } from "../redux/selector";
+import { addAlertItem } from "../redux/alert-popup/alertPopupItemsSlice";
 
 const ProductCard = props => {
   const dispatch = useDispatch();
@@ -48,6 +49,12 @@ const ProductCard = props => {
         quantity: 1
       })
     );
+
+    dispatch(
+      addAlertItem({
+        content: "The Product has been added to cart"
+      })
+    );
     // alert("Đã thêm");
   };
 
@@ -55,6 +62,11 @@ const ProductCard = props => {
     dispatch(
       addWishListItem({
         slug: slug
+      })
+    );
+    dispatch(
+      addAlertItem({
+        content: "The Product has been added to wish list"
       })
     );
     // alert("Đã thêm");
@@ -95,9 +107,22 @@ const ProductCard = props => {
 
           {images.map((image, index) =>
             color === index ? (
-              <img key={index} src={image} alt="product" className="show" />
+              <img
+                key={index}
+                src={image}
+                alt="product"
+                className="show"
+                onDrag={e => e.preventDefault()}
+                onClick={e => e.preventDefault()}
+              />
             ) : (
-              <img key={index} src={image} alt="product" />
+              <img
+                key={index}
+                src={image}
+                alt="product"
+                onDrag={e => e.preventDefault()}
+                onClick={e => e.preventDefault()}
+              />
             )
           )}
         </div>

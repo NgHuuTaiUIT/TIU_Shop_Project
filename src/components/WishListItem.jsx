@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeWishListItem } from "../redux/wish-list/wishlistItemsSlice";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const WishListItem = props => {
   const dispatch = useDispatch();
@@ -38,7 +39,9 @@ const WishListItem = props => {
             <span>${item.product.price} USD</span>
           </div>
           <div className="wishlist__item__body__item">
-            <Button>SELECT OPTION</Button>
+            <Link to={`/catalog/${item.slug}`}>
+              <Button>SELECT OPTION</Button>
+            </Link>
           </div>
           <div className="wishlist__item__body__item">
             <i className="bx bx-x" onClick={() => removeItem()}></i>
