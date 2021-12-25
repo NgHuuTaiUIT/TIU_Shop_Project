@@ -1,0 +1,22 @@
+.user {
+  width: 60%;
+  margin: auto;
+  &__section {
+    border: $border;
+  }
+
+  input {
+    padding: 20px;
+    background-color: $txt-second-color;
+    width: 100%;
+  }
+
+  &__item {
+    > .avatar {
+      @include flex(center, flex-start);
+      > img {
+        border-radius: 50%;
+      }
+    }
+  }
+}

@@ -159,6 +159,11 @@ const CollectionList = props => {
   return (
     <div className="collection-list">
       <div className="collection-list__filter" ref={filterRef}>
+        <div
+          className="collection-list__filter__close"
+          onClick={() => showFilterRef()}>
+          <i className="bx bx-x"></i>
+        </div>
         <div className="collection-list__filter__widget">
           <div className="collection-list__filter__widget__title">
             Category Product

@@ -1,0 +1,39 @@
+.news-detail {
+  color: $txt-white;
+  padding: 50px 0;
+  &__banner {
+    text-align: center;
+    // background-color: #333;
+    &__info {
+      padding: 50px;
+      background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.85));
+
+      > ul {
+        @include flex(center, center);
+        margin-top: 30px;
+        li ~ li {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 50px;
+    color: $txt-second-color;
+    line-height: 30px;
+    letter-spacing: 2px;
+    p ~ p {
+      margin: 20px 0;
+    }
+
+    > img {
+      max-width: 100%;
+    }
+  }
+
+  @include mobile {
+    &__content {
+    }
+  }
+}
