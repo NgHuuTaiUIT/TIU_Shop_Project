@@ -107,22 +107,9 @@ const ProductCard = props => {
 
           {images.map((image, index) =>
             color === index ? (
-              <img
-                key={index}
-                src={image}
-                alt="product"
-                className="show"
-                onDrag={e => e.preventDefault()}
-                onClick={e => e.preventDefault()}
-              />
+              <img key={index} src={image} alt="product" className="show" />
             ) : (
-              <img
-                key={index}
-                src={image}
-                alt="product"
-                onDrag={e => e.preventDefault()}
-                onClick={e => e.preventDefault()}
-              />
+              <img key={index} src={image} alt="product" />
             )
           )}
         </div>

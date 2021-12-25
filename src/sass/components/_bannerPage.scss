@@ -3,12 +3,35 @@
   color: #fff;
   font-size: 1.5rem;
   position: relative;
+  text-align: center;
 
   &__title {
+    // background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.85));
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    &__chevron {
+      @include flex(center, center);
+      // padding: 20px;
+
+      font-size: 1rem;
+      * ~ * {
+        margin-left: 20px;
+      }
+      > span {
+        font-weight: 700;
+      }
+
+      > a {
+        transition: all 0.3s linear;
+        &:hover {
+          color: $main-color;
+          font-weight: 700;
+        }
+      }
+    }
   }
 
   &__background {

@@ -19,8 +19,9 @@ import QuickView from "../components/QuickView";
 import Card, { CardBody, CardTitle } from "../components/Card";
 import { Link } from "react-router-dom";
 import TestimonialsCard from "../components/TestimonialCard";
-import News from "../components/News";
 import PolicyCard from "../components/PolicyCard";
+import NewsItem from "../components/NewsItem";
+import newsData from "../assets/fake-data/news";
 
 const Home = () => {
   return (
@@ -223,33 +224,15 @@ const Home = () => {
 
           <SectionBody>
             <Grid col={3} smCol={1} mdCol={2}>
-              <News
-                image={
-                  "https://cdn.shopify.com/s/files/1/0550/6665/6987/articles/blog1_1024x1024.jpg?v=1633138354"
-                }
-                title="WAISTCOAT WITH T-SHIRTS & UNBUTTONED SHIRTS"
-                description="
-            Men should play around with shirting, styling the look formally or giving it a more relaxed feel, depending on the shirt. It’s all...
-          "
-              />
-              <News
-                image={
-                  "https://cdn.shopify.com/s/files/1/0550/6665/6987/articles/blog3_d76e3322-5bcd-409f-bc30-ea8227c5c060_1024x1024.jpg?v=1633140834"
-                }
-                title="A STATEMENT OF STYLE: THE WOMEN’S VELEDA"
-                description="
-              Few things are as chic than the stunning midnight blue one-button tuxedo jacket in Italian wool crepe, accentuated by a deep black...
-            "
-              />
-              <News
-                image={
-                  "https://cdn.shopify.com/s/files/1/0550/6665/6987/articles/blog4_1024x1024.jpg?v=1633140681"
-                }
-                title="CO-ORDINATING BUSINESS SUITS FOR BOTH MEN & WOMEN"
-                description="
-              Vedela is rapidly becoming the label of first choice for business & organisations that operate across a range of latitudes. The fabric...
-            "
-              />
+              {newsData.getNews(3).map((item, index) => (
+                <NewsItem
+                  image={item.imageBanner}
+                  title={item.title}
+                  description={item.description}
+                  timePost={item.timePost}
+                  slug={item.slug}
+                />
+              ))}
             </Grid>
           </SectionBody>
         </Section>

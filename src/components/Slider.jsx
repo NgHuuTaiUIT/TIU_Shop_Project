@@ -79,7 +79,7 @@ const SliderItem = props => (
       <div
         className={`slider__item__image ${props.active ? "active" : ""}`}
         style={{
-          background: `url(${props.item.path[0]}) no-repeat`,
+          background: `url(${props.item.path[1]}) no-repeat`,
           backgroundSize: "cover",
           paddingTop: "100%"
         }}>
