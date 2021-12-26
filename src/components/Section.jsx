@@ -1,8 +1,10 @@
 import React from "react";
 
 const Section = props => {
+  const { dataAos } = props;
+
   return (
-    <div className="section" style={props.style}>
+    <div className="section" style={props.style} data-aos={dataAos}>
       {props.children}
     </div>
   );

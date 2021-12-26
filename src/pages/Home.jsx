@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Helmet from "../components/Helmet";
 import Slider from "../components/Slider";
@@ -22,8 +22,21 @@ import TestimonialsCard from "../components/TestimonialCard";
 import PolicyCard from "../components/PolicyCard";
 import NewsItem from "../components/NewsItem";
 import newsData from "../assets/fake-data/news";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
+  useEffect(() => {
+    // Aos.init({ duration: 2000 });
+    Aos.init({
+      offset: 50,
+      duration: 1000,
+      easing: "linear",
+      // delay: 100
+      once: true
+    });
+  }, []);
+
   return (
     <Helmet title="Home">
       {/* Slider*/}
@@ -35,6 +48,7 @@ const Home = () => {
             <Grid col={4} mdCol={2} smCol={1} gap={20}>
               {policy.map((item, index) => (
                 <PolicyCard
+                  dataAos={index > 1 ? "fade-left" : "fade-right"}
                   key={index}
                   name={item.name}
                   description={item.description}
@@ -53,6 +67,8 @@ const Home = () => {
             <Grid col={4} mdCol={2} smCol={2} gap={20}>
               {productData.getAllProducts().map((item, index) => (
                 <ProductCard
+                  // dataAos={"flip-left"}
+                  dataAos={"zoom-in"}
                   key={index}
                   product={item}
                   link={"/"}
@@ -81,7 +97,7 @@ const Home = () => {
         <SectionTitle>You Might Also Like</SectionTitle>
         <SectionBody>
           <Grid col={4} gap={20}>
-            <Card>
+            <Card dataAos={"fade-right"}>
               <CardBody>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_2.jpg?v=1634006926"
@@ -94,7 +110,7 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card>
+            <Card dataAos={"fade-right"}>
               <CardBody>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_4.jpg?v=1634008771"
@@ -108,7 +124,8 @@ const Home = () => {
               </CardTitle>
             </Card>
             <Card
-            // style={{ gridColumn: "3 / 5" }}
+              dataAos={"fade-left"}
+              // style={{ gridColumn: "3 / 5" }}
             >
               <CardBody>
                 <img
@@ -123,7 +140,8 @@ const Home = () => {
               </CardTitle>
             </Card>
             <Card
-            // style={{ gridColumn: "1 / 3" }}
+              dataAos={"fade-right"}
+              // style={{ gridColumn: "1 / 3" }}
             >
               <CardBody>
                 <img
@@ -137,7 +155,7 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card>
+            <Card dataAos={"fade-left"}>
               <CardBody>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_1.jpg?v=1634008186"
@@ -150,7 +168,7 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card>
+            <Card dataAos={"fade-left"}>
               <CardBody>
                 <img
                   src="		https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_3.jpg?v=1634008186"
@@ -172,6 +190,7 @@ const Home = () => {
           <SectionTitle>Flash Sale</SectionTitle>
           <SectionBody>
             <SlideProduct
+              dataAos={"zoom-in"}
               data={productData.getAllProducts()}
               size={4}
               mdsize={2}
@@ -195,6 +214,7 @@ const Home = () => {
       {/* Member */}
 
       <Section
+        dataAos="fade-up"
         style={{
           background: `url("https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-under.jpg?v=1633421819") no-repeat `,
           backgroundSize: "cover",
@@ -203,6 +223,7 @@ const Home = () => {
         <SectionTitle style={{ color: "#fff" }}>TESTIMONIALS</SectionTitle>
         <SectionBody>
           <SlideProduct
+            dataAos={"fade-up"}
             data={productData.getAllProducts()}
             size={1}
             // _left={101.5}
@@ -226,6 +247,7 @@ const Home = () => {
             <Grid col={3} smCol={1} mdCol={2}>
               {newsData.getNews(3).map((item, index) => (
                 <NewsItem
+                  dataAos={"zoom-in"}
                   image={item.imageBanner}
                   title={item.title}
                   description={item.description}

@@ -3,11 +3,26 @@ import PropTypes from "prop-types";
 import Grid from "./Grid";
 import RatingStart from "./RatingStart";
 import Button from "./Button";
+import Aos from "aos";
 
 const ProductDetailView = props => {
   const { product, review } = props;
 
   const [itemShow, setItemShow] = useState(0);
+
+  useEffect(() => {
+    // Aos.init({ duration: 2000 });
+    Aos.init({
+      offset: 50,
+      duration: 1000,
+      easing: "linear",
+      // delay: 100
+      once: true
+      // startEvent:()=>{
+      //   return
+      // }
+    });
+  }, []);
 
   useEffect(() => {
     setItemShow(0);
@@ -28,7 +43,7 @@ const ProductDetailView = props => {
   const description = preTreatmentDescriptions();
 
   return (
-    <div className="product-detail">
+    <div className="product-detail" data-aos={"fade-up"}>
       <div className="product-detail__header">
         <span
           onClick={() => setItemShow(0)}
@@ -36,7 +51,10 @@ const ProductDetailView = props => {
           Description
         </span>
         <span
-          onClick={() => setItemShow(1)}
+          onClick={() => {
+            setItemShow(1);
+            // Aos.refreshHard();
+          }}
           className={`${itemShow === 1 ? "active" : ""}`}>
           Additional
         </span>
@@ -54,7 +72,12 @@ const ProductDetailView = props => {
               itemShow === 0 ? "active" : ""
             }`}>
             {description.map((item, index) => (
-              <p key={index}>{item}</p>
+              <p
+                key={index}
+                // data-aos="fade-left"
+              >
+                {item}
+              </p>
             ))}
           </div>
           {/*End Description */}
@@ -65,7 +88,9 @@ const ProductDetailView = props => {
               itemShow === 1 ? "active" : ""
             }`}>
             <div className="flex">
-              <div className="product-detail__body__additional__item product-detail__body__additional__more-infomation">
+              <div
+                className="product-detail__body__additional__item product-detail__body__additional__more-infomation"
+                data-aos="fade-up">
                 <div className=" product-detail__body__additional__more-infomation__title">
                   Things You Need To Know
                 </div>
@@ -106,7 +131,7 @@ const ProductDetailView = props => {
                 </div>
               </div>
               <div className="product-detail__body__additional__item product-detail__body__additional__image">
-                <img src={product.images[0]} alt="" />
+                <img src={product.images[0]} alt="" data-aos="fade-right" />
               </div>
             </div>
           </div>

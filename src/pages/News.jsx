@@ -1,9 +1,20 @@
-import React from "react";
+import Aos from "aos";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import newsData from "../assets/Json/newsData.json";
 import BannerPage from "../components/BannerPage";
 import Helmet from "../components/Helmet";
 const News = props => {
+  useEffect(() => {
+    Aos.init({
+      offset: 50,
+      duration: 1000,
+      easing: "linear",
+      // delay: 100
+      once: true
+    });
+  }, []);
+
   return (
     <Helmet title={"News"}>
       <BannerPage
@@ -43,7 +54,7 @@ const News = props => {
         </div>
         <div className="news__content">
           {newsData.map((item, index) => (
-            <div className="news__content__item">
+            <div className="news__content__item" data-aos={"fade-up"}>
               <div className="main-image">
                 <Link to={`${item.slug}`}>
                   <img src={item.imageBanner} alt="" />
