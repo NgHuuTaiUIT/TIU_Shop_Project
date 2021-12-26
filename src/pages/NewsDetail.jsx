@@ -88,6 +88,7 @@ const NewsDetail = props => {
             timeOut={5000}>
             {newsData.getAllnews().map((item, index) => (
               <NewsItem
+                dataAos={"zoom-in"}
                 image={item.imageBanner}
                 title={item.title}
                 description={item.description}

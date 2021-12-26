@@ -3,12 +3,23 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { alertPopupItemsSelector } from "../redux/selector";
 import { removeAlertItem } from "../redux/alert-popup/alertPopupItemsSlice";
+import Aos from "aos";
 
 const AlertPopUp = props => {
   const alertPopupItems = useSelector(alertPopupItemsSelector);
   const [alerts, setAlerts] = useState(alertPopupItems);
   const dispatch = useDispatch(null);
   console.log(alertPopupItems.length);
+
+  useEffect(() => {
+    Aos.init({
+      offset: 50,
+      duration: 500,
+      easing: "linear",
+      // delay: 100
+      once: true
+    });
+  }, []);
 
   useEffect(() => {
     setAlerts(alertPopupItems);
@@ -28,7 +39,7 @@ const AlertPopUp = props => {
   return (
     <div className="alert-popup">
       {alerts.map((item, index) => (
-        <div className="alert-popup__item ">
+        <div className="alert-popup__item" data-aos="fade-right">
           <div className="alert-popup__icon">
             <i className="bx bxs-check-circle"></i>
           </div>

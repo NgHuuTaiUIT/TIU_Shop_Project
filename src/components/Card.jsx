@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Card = props => {
-  const { style, children } = props;
+  const { style, children, dataAos } = props;
   console.log(style);
   return (
-    <div className="card" style={style}>
+    <div className="card" style={style} data-aos={dataAos}>
       {/* <div className="card__content">{children}</div> */}
       {children}
     </div>

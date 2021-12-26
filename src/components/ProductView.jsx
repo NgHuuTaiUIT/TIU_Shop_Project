@@ -8,6 +8,7 @@ import Button from "./Button";
 import randomNumber from "../assets/utils/randomNumber";
 import { addItem } from "../redux/shopping-cart/cartItemsSlice";
 import { addWishListItem } from "../redux/wish-list/wishlistItemsSlice";
+import Aos from "aos";
 // import { addItems } from "../redux/shopping-cart/cartItemsSlice";
 
 const ProductView = props => {
@@ -26,6 +27,17 @@ const ProductView = props => {
   const [size, setSize] = useState(0);
 
   const [color, setColor] = useState(null);
+
+  useEffect(() => {
+    // Aos.init({ duration: 2000 });
+    Aos.init({
+      offset: 50,
+      duration: 1000,
+      easing: "linear",
+      // delay: 100
+      once: false
+    });
+  }, []);
 
   useEffect(() => {
     setPreviewImg(0);
@@ -83,7 +95,7 @@ const ProductView = props => {
 
   return (
     <div className={`product ${!isFullSize ? "sm" : ""}`}>
-      <div className="product__images">
+      <div className="product__images" data-aos={"fade-right"}>
         <div className="product__images__list">
           {product.images.map((item, index) => (
             <div
@@ -111,7 +123,7 @@ const ProductView = props => {
           ))}
         </div>
       </div>
-      <div className="product__content">
+      <div className="product__content" data-aos={"fade-left"}>
         <div
           className="product__content__item product__content__item__add-wishlist"
           onClick={() => addToWishList()}>

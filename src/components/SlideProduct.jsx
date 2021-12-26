@@ -14,7 +14,8 @@ const SlideProduct = props => {
     auto = true,
     timeOut = 3000,
     mdsize = size,
-    smsize = size
+    smsize = size,
+    dataAos
   } = props;
 
   let tempData = [];
@@ -93,7 +94,7 @@ const SlideProduct = props => {
 
   return (
     <>
-      <div className="slide-product" ref={productSlide}>
+      <div className="slide-product" ref={productSlide} data-aos={dataAos}>
         <div
           ref={slideRef}
           className="wrap"

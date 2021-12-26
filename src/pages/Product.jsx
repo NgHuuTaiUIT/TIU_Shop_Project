@@ -37,6 +37,7 @@ const Product = props => {
             <Grid col={4} mdCol={2} smCol={1} gap={20}>
               {policy.map((item, index) => (
                 <PolicyCard
+                  dataAos={index > 1 ? "fade-left" : "fade-right"}
                   key={index}
                   name={item.name}
                   description={item.description}
@@ -65,6 +66,7 @@ const Product = props => {
               timeOut={5000}>
               {relatedProducts.map((item, index) => (
                 <ProductCard
+                  dataAos={"zoom-in"}
                   key={index}
                   product={item}
                   link={"/"}

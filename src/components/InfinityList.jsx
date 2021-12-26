@@ -66,6 +66,7 @@ const InfinityList = props => {
       <Grid col={col} mdCol={2} smCol={2} gap={20}>
         {products.map((item, index) => (
           <ProductCard
+            dataAos={"zoom-in"}
             key={index}
             product={item}
             link={"/"}
