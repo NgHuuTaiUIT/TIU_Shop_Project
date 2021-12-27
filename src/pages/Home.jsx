@@ -22,20 +22,20 @@ import TestimonialsCard from "../components/TestimonialCard";
 import PolicyCard from "../components/PolicyCard";
 import NewsItem from "../components/NewsItem";
 import newsData from "../assets/fake-data/news";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 
 const Home = () => {
-  useEffect(() => {
-    // Aos.init({ duration: 2000 });
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Aos.init({ duration: 2000 });
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   return (
     <Helmet title="Home">

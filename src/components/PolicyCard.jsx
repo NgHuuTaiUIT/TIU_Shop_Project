@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 
 const PolicyCard = props => {
   const { icon, name, description, dataAos } = props;
 
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({ duration: 1000 });
+  // }, []);
 
   return (
     <div data-aos={dataAos}>

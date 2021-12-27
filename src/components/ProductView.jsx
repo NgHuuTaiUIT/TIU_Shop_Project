@@ -8,7 +8,7 @@ import Button from "./Button";
 import randomNumber from "../assets/utils/randomNumber";
 import { addItem } from "../redux/shopping-cart/cartItemsSlice";
 import { addWishListItem } from "../redux/wish-list/wishlistItemsSlice";
-import Aos from "aos";
+// import Aos from "aos";
 // import { addItems } from "../redux/shopping-cart/cartItemsSlice";
 
 const ProductView = props => {
@@ -28,16 +28,16 @@ const ProductView = props => {
 
   const [color, setColor] = useState(null);
 
-  useEffect(() => {
-    // Aos.init({ duration: 2000 });
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: false
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Aos.init({ duration: 2000 });
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: false
+  //   });
+  // }, []);
 
   useEffect(() => {
     setPreviewImg(0);

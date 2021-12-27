@@ -1,19 +1,19 @@
-import Aos from "aos";
+// import Aos from "aos";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import newsData from "../assets/Json/newsData.json";
 import BannerPage from "../components/BannerPage";
 import Helmet from "../components/Helmet";
 const News = props => {
-  useEffect(() => {
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   return (
     <Helmet title={"Blogs"}>

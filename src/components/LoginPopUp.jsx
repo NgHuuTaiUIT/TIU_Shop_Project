@@ -37,7 +37,7 @@ const LoginPopUp = props => {
         <div className="login__logo">
           <img src={logo} alt="" />
         </div>
-        <div className="login__close">
+        <div className="login__close" onClick={() => closeLogin()}>
           <i className="bx bx-x"></i>
         </div>
         {/* <h3 className="login__title">Sign Inot Your Account</h3> */}

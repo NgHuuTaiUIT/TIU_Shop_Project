@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Grid from "./Grid";
 import Button from "./Button";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 
 const Slider = props => {
   const { data, timeOut = 5000, auto = true, control = true } = props;
@@ -22,9 +22,9 @@ const Slider = props => {
     setActiveSlider(index);
   };
 
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({ duration: 1000 });
+  // }, []);
 
   useEffect(() => {
     if (auto) {

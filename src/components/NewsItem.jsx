@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Aos from "aos";
+// import Aos from "aos";
 
 const NewsItem = props => {
   const {
@@ -12,15 +12,15 @@ const NewsItem = props => {
     dataAos = "fade-up"
   } = props;
 
-  useEffect(() => {
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   return (
     <div className="news-item" data-aos={dataAos}>

@@ -16,7 +16,7 @@ import {
 } from "../redux/wish-list/wishlistItemsSlice";
 import { wishListItemsSelector } from "../redux/selector";
 import { addAlertItem } from "../redux/alert-popup/alertPopupItemsSlice";
-import Aos from "aos";
+// import Aos from "aos";
 
 const ProductCard = props => {
   const { link, product, dataAos } = props;
@@ -41,16 +41,16 @@ const ProductCard = props => {
     setColor(index);
   };
 
-  useEffect(() => {
-    // Aos.init({ duration: 2000 });
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Aos.init({ duration: 2000 });
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   const addToCard = () => {
     dispatch(
