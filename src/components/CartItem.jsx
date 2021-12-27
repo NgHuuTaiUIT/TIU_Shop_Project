@@ -36,33 +36,6 @@ const CartItem = props => {
 
   console.log(props.item);
   return (
-    // <div className="cart__item">
-    //   <div className="cart__item__image">
-    //     <img src={item.product.images[0]} alt="" />
-    //   </div>
-    //   <div className="cart__item__info">
-    //     <div className="cart__item__info__name">
-    //       <Link to={`/catalog/${item.slug}`}>
-    //         {`${item.product.title} - ${item.color} - ${item.size}`}
-    //       </Link>
-    //     </div>
-    //     <div className="cart__item__info__price">${price} USD</div>
-    //     <div className="cart__item__info__quantity">
-    //       <span>{quantity}</span>
-    //       <div className="chevron">
-    //         <i
-    //           className="bx bx-chevron-up"
-    //           onClick={() => increaseQuantity()}></i>
-    //         <i
-    //           className="bx bx-chevron-down"
-    //           onClick={() => decreaseQuantity()}></i>
-    //       </div>
-    //     </div>
-    //     <div className="cart__item__info__del">
-    //       <i className="bx bx-trash" onClick={() => removeCartItem()}></i>
-    //     </div>
-    //   </div>
-    // </div>
     <div className="cart__item">
       <div className="cart__item__header">
         <span>PRODUCT NAME</span>

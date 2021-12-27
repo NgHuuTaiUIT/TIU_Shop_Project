@@ -4,6 +4,7 @@ import "./App.css";
 import AlertPopUp from "./components/AlertPopUp";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import LoginPopUp from "./components/LoginPopUp";
 import QuickView from "./components/QuickView";
 
 import Home from "./pages/Home";
@@ -42,6 +43,7 @@ function App(props) {
         <Footer />
         <AlertPopUp />
         <QuickView />
+        <LoginPopUp />
       </div>
 
       {/* </div> */}

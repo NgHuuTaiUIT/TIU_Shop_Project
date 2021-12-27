@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import { cartItemsSelector } from "../redux/selector";
 import "../sass/components/_header.scss";
 import products from "../assets/fake-data/product";
 import Grid from "./Grid";
+import { setActive } from "../redux/login-popup/loginPopupSlice";
 const mainNav = [
   {
     title: "Home",
@@ -16,13 +17,14 @@ const mainNav = [
     path: "/catalog"
   },
   {
-    title: "News",
+    title: "Blogs",
     path: "/news"
-  },
-  {
-    title: "Contact",
-    path: "/contact"
   }
+  // ,
+  // {
+  //   title: "Contact",
+  //   path: "/contact"
+  // }
 ];
 
 const Header = () => {
@@ -47,6 +49,12 @@ const Header = () => {
   const coverBgRef = useRef(null);
 
   const cartItems = useSelector(cartItemsSelector);
+
+  const dispatch = useDispatch();
+
+  const setLoginActive = () => {
+    dispatch(setActive());
+  };
 
   const menuToggle = () => {
     console.log(document.body.offsetWidth);
@@ -153,7 +161,9 @@ const Header = () => {
             onClick={() => setIsShowSearch(true)}>
             <i className="bx bx-search"></i>
           </div>
-          <div className="header__menu__item header__menu__right__item">
+          <div
+            className="header__menu__item header__menu__right__item"
+            onClick={setLoginActive}>
             <i className="bx bx-user"></i>
           </div>
           <Link

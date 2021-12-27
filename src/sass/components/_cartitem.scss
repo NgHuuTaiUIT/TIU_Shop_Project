@@ -1,30 +1,4 @@
 .cart {
-  // &__info {
-  //   &__quantity {
-  //     border: 1px solid black;
-  //     font-size: 1.5rem;
-  //     @include flex(center, start);
-  //     span {
-  //       display: block;
-  //       padding: 10px 0px;
-  //       width: 70px;
-  //       border-right: 1px solid #000000;
-  //       text-align: center;
-  //     }
-  //     .chevron {
-  //       @include flex(center, space-between);
-  //       flex-direction: column;
-  //       i {
-  //         cursor: pointer;
-  //         padding: 0 5px;
-  //       }
-  //       i ~ i {
-  //         border-top: 1px solid black;
-  //       }
-  //     }
-  //   }
-  // }
-
   &__item {
     // flex-direction: column;
     display: grid;

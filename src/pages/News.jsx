@@ -16,7 +16,7 @@ const News = props => {
   }, []);
 
   return (
-    <Helmet title={"News"}>
+    <Helmet title={"Blogs"}>
       <BannerPage
         imgBackground={
           "https://cdn.shopify.com/s/files/1/0550/6665/6987/files/page-2.jpg?v=1633318013"

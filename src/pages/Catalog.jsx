@@ -15,20 +15,6 @@ import price from "../assets/fake-data/price";
 const Catalog = () => {
   return (
     <Helmet title="Catalog">
-      {/* {productData
-        .getAllProducts()
-        .slice(0, 1)
-        .map((item, index) => (
-          <QuickView
-            key={index}
-            title={item.title}
-            images={item.images}
-            slug={item.categorySlug}
-            size={item.size}
-            link={"/"}
-            price={Number.parseFloat(item.price)}
-          />
-        ))} */}
       <BannerPage
         imgBackground={
           "https://cdn.shopify.com/s/files/1/0550/6665/6987/files/page-1.jpg?v=1633331587"

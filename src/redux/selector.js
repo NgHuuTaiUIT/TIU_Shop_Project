@@ -7,3 +7,5 @@ export const cartItemsSelector = state => state.cartItems.value;
 export const wishListItemsSelector = state => state.wishListItems.value;
 
 export const alertPopupItemsSelector = state => state.alertPopupItems.value;
+
+export const loginPopupSelector = state => state.loginPopup.value;

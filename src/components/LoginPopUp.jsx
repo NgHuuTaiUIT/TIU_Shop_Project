@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import logo from "../assets/images/logo.png";
 import CheckBox from "./CheckBox";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginPopupSelector } from "../redux/selector";
+import { setActive } from "../redux/login-popup/loginPopupSlice";
 const LoginPopUp = props => {
+  const loginPopupStatus = useSelector(loginPopupSelector);
+
   const [side, setSide] = useState(0);
+
+  const [show, setShow] = useState(loginPopupStatus);
 
   const styleNone = {
     display: "none"
@@ -14,8 +21,18 @@ const LoginPopUp = props => {
     // visibility: "hidden"
   };
 
+  const dispatch = useDispatch();
+
+  const closeLogin = () => {
+    dispatch(setActive());
+  };
+
+  useEffect(() => {
+    setShow(loginPopupStatus);
+  }, [loginPopupStatus]);
+
   return (
-    <div className="login">
+    <div className="login" style={show ? {} : styleNone}>
       <div className="login__popup" style={side !== 0 ? styleNone : {}}>
         <div className="login__logo">
           <img src={logo} alt="" />
@@ -71,7 +88,7 @@ const LoginPopUp = props => {
         <div className="register__logo">
           <img src={logo} alt="" />
         </div>
-        <div className="register__close">
+        <div className="register__close" onClick={() => closeLogin()}>
           <i className="bx bx-x"></i>
         </div>
         {/* <h3 className="register__title">Sign Inot Your Account</h3> */}
