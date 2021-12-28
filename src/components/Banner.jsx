@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-const Banner = props => {
+const Banner = (props) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
