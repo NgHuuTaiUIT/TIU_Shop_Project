@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { alertPopupItemsSelector } from "../redux/selector";
 import { removeAlertItem } from "../redux/alert-popup/alertPopupItemsSlice";
-import Aos from "aos";
+// import Aos from "aos";
 
 const AlertPopUp = props => {
   const alertPopupItems = useSelector(alertPopupItemsSelector);
@@ -11,15 +11,15 @@ const AlertPopUp = props => {
   const dispatch = useDispatch(null);
   console.log(alertPopupItems.length);
 
-  useEffect(() => {
-    Aos.init({
-      offset: 50,
-      duration: 500,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 500,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   useEffect(() => {
     setAlerts(alertPopupItems);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -11,6 +11,7 @@ import Wishlist from "../pages/Wishlist";
 import Login from "../pages/Login";
 import NewsDetail from "../pages/NewsDetail";
 import User from "../pages/User";
+import LoginPopUp from "../components/LoginPopUp";
 
 const Routers = () => {
   return (

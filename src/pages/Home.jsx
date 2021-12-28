@@ -22,20 +22,20 @@ import TestimonialsCard from "../components/TestimonialCard";
 import PolicyCard from "../components/PolicyCard";
 import NewsItem from "../components/NewsItem";
 import newsData from "../assets/fake-data/news";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 
 const Home = () => {
-  useEffect(() => {
-    // Aos.init({ duration: 2000 });
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Aos.init({ duration: 2000 });
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //   });
+  // }, []);
 
   return (
     <Helmet title="Home">
@@ -76,19 +76,6 @@ const Home = () => {
                 />
               ))}
             </Grid>
-            {/* <SlideProduct data={productData.getAllProducts()} size={"24%"}>
-              {productData.getAllProducts().map((item, index) => (
-                <ProductCard
-                  key={index}
-                  title={item.title}
-                  images={item.images}
-                  slug={item.categorySlug}
-                  size={item.size}
-                  link={"/"}
-                  price={Number.parseFloat(item.price)}
-                />
-              ))}
-            </SlideProduct> */}
           </SectionBody>
         </Section>
       </div>
@@ -123,10 +110,7 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card
-              dataAos={"fade-left"}
-              // style={{ gridColumn: "3 / 5" }}
-            >
+            <Card dataAos={"fade-left"}>
               <CardBody>
                 <img
                   src="	https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_5.jpg?v=1634010518"
@@ -139,10 +123,7 @@ const Home = () => {
                 </h3>
               </CardTitle>
             </Card>
-            <Card
-              dataAos={"fade-right"}
-              // style={{ gridColumn: "1 / 3" }}
-            >
+            <Card dataAos={"fade-right"}>
               <CardBody>
                 <img
                   src="https://cdn.shopify.com/s/files/1/0550/6665/6987/files/h1-banner-11_6.jpg?v=1634011276"

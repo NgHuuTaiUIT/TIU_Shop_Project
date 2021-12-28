@@ -253,7 +253,7 @@
       }
       &__mobile-toggle {
         flex: 1;
-
+        cursor: pointer;
         display: none;
         @include flex(center, left);
 
@@ -261,15 +261,6 @@
           display: flex;
           font-size: 1.5rem;
         }
-      }
-
-      .line {
-        // position: fixed;
-        // width: 50px;
-        // height: 3px;
-        // background-color: white;
-        // top: 20px;
-        // left: 10px;
       }
     }
 
@@ -327,10 +318,6 @@
   @include mobile {
     height: $header-mobile-height;
     // min-width: $mobile-width;
-    &__item {
-      // margin-top: $header-mobile-height;
-    }
-
     i {
       font-size: 2rem;
     }

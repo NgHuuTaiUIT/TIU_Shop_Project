@@ -3,26 +3,26 @@ import PropTypes from "prop-types";
 import Grid from "./Grid";
 import RatingStart from "./RatingStart";
 import Button from "./Button";
-import Aos from "aos";
+// import Aos from "aos";
 
 const ProductDetailView = props => {
   const { product, review } = props;
 
   const [itemShow, setItemShow] = useState(0);
 
-  useEffect(() => {
-    // Aos.init({ duration: 2000 });
-    Aos.init({
-      offset: 50,
-      duration: 1000,
-      easing: "linear",
-      // delay: 100
-      once: true
-      // startEvent:()=>{
-      //   return
-      // }
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Aos.init({ duration: 2000 });
+  //   Aos.init({
+  //     offset: 50,
+  //     duration: 1000,
+  //     easing: "linear",
+  //     // delay: 100
+  //     once: true
+  //     // startEvent:()=>{
+  //     //   return
+  //     // }
+  //   });
+  // }, []);
 
   useEffect(() => {
     setItemShow(0);

@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-        <Grid col={4} mdCol={3} smCol={3} gap={10}>
+        <Grid col={4} mdCol={3} smCol={2} gap={10}>
           <div>
             <div className="footer__logo">
               <Link to="/">

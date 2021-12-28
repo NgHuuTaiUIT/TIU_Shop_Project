@@ -17,7 +17,7 @@ const NewsDetail = props => {
   //   const relatedNews = newsData.getNews(8);
 
   return (
-    <Helmet title={""}>
+    <Helmet title={"Blogs"}>
       <div className="container">
         <div className="news-detail">
           <div
