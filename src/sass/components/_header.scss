@@ -253,7 +253,7 @@
       }
       &__mobile-toggle {
         flex: 1;
-
+        cursor: pointer;
         display: none;
         @include flex(center, left);
 

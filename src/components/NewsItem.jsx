@@ -12,16 +12,6 @@ const NewsItem = props => {
     dataAos = "fade-up"
   } = props;
 
-  // useEffect(() => {
-  //   Aos.init({
-  //     offset: 50,
-  //     duration: 1000,
-  //     easing: "linear",
-  //     // delay: 100
-  //     once: true
-  //   });
-  // }, []);
-
   return (
     <div className="news-item" data-aos={dataAos}>
       <div

@@ -23,16 +23,21 @@
       @include flex(center, left);
 
       input {
-        background-color: $main-bg;
-        // border-bottom: 1px solid #333;
+        background-color: $btn-main-color;
+        box-shadow: $box-shadow;
         font-size: 1rem;
-        padding: 20px;
+        padding: 1rem 20px;
+        border: 1px solid transparent;
+
+        &:focus {
+          border: 1px solid $main-color;
+        }
       }
       i {
         font-size: 1.3rem;
         color: white;
         background-color: #333;
-        padding: 12px;
+        padding: 1rem;
       }
     }
 
