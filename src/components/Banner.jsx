@@ -8,6 +8,7 @@ const Banner = props => {
   // useEffect(() => {
   //   Aos.init({ duration: 1000 });
   // }, []);
+
   const { data } = props;
   return (
     <div className="banner">
