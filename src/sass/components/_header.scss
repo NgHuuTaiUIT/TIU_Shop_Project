@@ -113,7 +113,6 @@
 
   &__logo {
     @include flex(center, center);
-    pointer-events: none;
     inset: 0;
     flex: 2;
     img {
