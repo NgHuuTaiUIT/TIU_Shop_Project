@@ -23,10 +23,10 @@
       @include flex(center, left);
 
       input {
-        background-color: $main-bg;
+        background-color: $white;
         // border-bottom: 1px solid #333;
         font-size: 1rem;
-        padding: 20px;
+        padding: 13px;
       }
       i {
         font-size: 1.3rem;
